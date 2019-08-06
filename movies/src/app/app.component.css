@@ -1,0 +1,98 @@
+.main-container {
+    /*width: 75%;*/
+    padding-left: 30px;
+    background-color: #bedce49c;
+    /* #96aebfa3; */
+    padding: 2em;
+    margin: 1em;
+    border-radius: 7px;
+    box-shadow: 3px 4px 2px 2px #0000007d;
+  
+  }
+  
+  .app-bar-title {
+    text-align: center;
+    color: rgb(193, 16, 16);
+    /*color: rgb(39, 39, 39);*/
+    font-family: Fred;
+    /*font-family: Lobster;*/
+    font-size: 350%;
+    text-shadow: 0px 0px 1px #FFF;
+    transition: text-shadow 1s;
+    /* padding-right: 1vw; */
+  }
+  
+  .app-bar-title:hover {
+    text-shadow: 0px 0px 50px #000000;
+    cursor: pointer;
+  }
+  
+  .app-nav-bar {
+    margin-top: -6vh;
+    display: flex;
+    justify-content: space-between;
+    width: 96%;
+    margin-left: 2vw;
+  }
+  
+  .part-nav-bar {
+    border-bottom-style: double;
+    border-top-style: double;
+    width: 26%;
+    color: rgb(247, 228, 149) !important;
+  }
+  
+  .part-nav-bar a {
+    color: rgb(247, 228, 149) !important;
+  }
+  
+  .app-fb-login {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  
+  .heroes-aside {
+    float: right;
+    width: 20vw;
+  
+  }  
+  
+  header {
+    padding-bottom: 5vh;
+  }
+  
+  footer {
+    text-align: center;
+    padding-top: 50px;
+    color: rgb(247, 228, 149);
+  }
+  
+  
+  a {
+    color: black;
+    /*font-family: Questrial;*/
+    font-size: 20px;
+    text-decoration-line: none;
+  }
+  
+  a:active {
+    color: rgb(247, 228, 149);
+  }
+  
+  a:hover {
+    color: rgb(247, 228, 149);
+  }
+  
+  nav {
+    /* background-color: rgb(151, 151, 151); */
+    border-radius: 10px 10px 10px 10px;
+    text-align: center;
+    letter-spacing: .1em;
+    /* line-height: 8.125em; */
+  }
+  
+  nav a {
+    padding: 10px;
+  }
+  

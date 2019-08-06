@@ -2,3 +2,66 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* Application-wide Styles */
+h1 {
+  color: #141414;
+  font-family: MuktaMalar;
+  font-size: 250%;
+}
+h2,
+h3 {
+  color: #000000;
+  font-family: MuktaMalar;
+  font-weight: lighter;
+}
+body {
+  margin: 2em 0em;
+  background-color: #8aa2f0;
+  color: #102031;
+}
+.mat-select-value, .mat-form-field-label, .mat-input-element, .mat-form-field-underline{
+  color:#000000 !important;
+}
+div.mat-input-underline.mat-form-field-underline{
+  background-color:#000000 ;
+}
+
+body,
+input[text],
+button {
+  font-family: MuktaMalar;
+}
+/* everywhere else */
+* {
+  font-family: MuktaMalar;
+}
+
+/* @font-face {
+  font-family: "MuktaMalar";
+  src: url("./assets/fonts/MuktaMalar-Regular.ttf");
+}@font-face {
+  font-family: "Audiowide";
+  src: url("./assets/fonts/Audiowide-Regular.ttf");
+}@font-face {
+  font-family: "Bangers";
+  src: url("./assets/fonts/Bangers-Regular.ttf");
+}@font-face {
+  font-family: "Orbitron";
+  src: url("./assets/fonts/Orbitron-Regular.ttf");
+}@font-face {
+  font-family: "RussoOne";
+  src: url("./assets/fonts/RussoOne-Regular.ttf");
+} */
+header{
+  background-color: #192a35f2;
+  box-shadow: 3px 4px 2px 2px #0000007d;
+  padding: 9vh 2vw;
+  margin: 4vh 0vw;
+}
+header a {
+  color: #243852 !important;
+
+}
