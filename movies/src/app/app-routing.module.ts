@@ -8,13 +8,7 @@ import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
-<<<<<<< HEAD
-  { path: "", component: HomeComponent },
-  { path: "login", component: LoginComponent },
-  
-=======
   { path: 'login', component: LoginComponent },
->>>>>>> b8925708b7e13077e576d019ada6085320682ba6
 ];
 
 @NgModule({
