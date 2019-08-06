@@ -1,0 +1,8 @@
+.login-box {
+    background-color: lightblue;
+    width: 40%;
+    height: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 5px 10px #888888;
+}
