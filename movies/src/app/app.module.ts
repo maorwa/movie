@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ApplicationRef  } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -15,6 +15,11 @@ import { HomeComponent } from './components/home/home.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { ManagmentComponent } from './components/managment/managment.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
+import { CommonModule } from '@angular/common';
+
+import { AgmCoreModule } from '@agm/core';
+import { MapModalComponent } from './map-modal/map-modal.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +28,8 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
     HomeComponent,
     MovieComponent,
     ManagmentComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    MapModalComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +40,11 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
     MatButtonModule,
     MatCheckboxModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    CommonModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyC6Oo3L2h-hkBHymAhprLoXQX9tnDwbsNs'
+    })
     ],
   providers: [],
   bootstrap: [AppComponent]
