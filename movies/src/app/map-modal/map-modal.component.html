@@ -1,5 +1,10 @@
-<h1>{{ mapTitle }}</h1>
+<h3 class="map-title">{{mapTitle}}</h3>
 
-<agm-map [zoom]=zoom [latitude]="lat" [longitude]="lng">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+<agm-map [zoom]=zoom [latitude]="latCenter" [longitude]="lngCenter">
+  <agm-marker 
+  *ngFor="let m of markers"
+  (markerClick)="clickedMarker(m.label)"
+  [latitude]="m.lat"
+  [longitude]="m.lng">
+</agm-marker>
 </agm-map>
