@@ -14,6 +14,7 @@ import { MatFormFieldModule } from '@angular/material';
 import { HomeComponent } from './components/home/home.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { ManagmentComponent } from './components/managment/managment.component';
+import { StatisticsComponent } from './components/statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ManagmentComponent } from './components/managment/managment.component';
     LoginComponent,
     HomeComponent,
     MovieComponent,
-    ManagmentComponent
+    ManagmentComponent,
+    StatisticsComponent
   ],
   imports: [
     BrowserModule,
