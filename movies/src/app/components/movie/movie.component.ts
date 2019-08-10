@@ -18,7 +18,6 @@ export class MovieComponent implements OnInit {
 
   ngOnInit() {
     this.isAdmin = this.Auth.isLoggedIn;
-    console.log(this.isAdmin);
     this.get_movies();
   }
 
@@ -26,7 +25,6 @@ export class MovieComponent implements OnInit {
     this.movieService.get_movies().subscribe(
       (res : Movie[]) => {
           this.movieList = res
-          console.log(this.movieList)
       },
       err => {
          console.log("Error occured");
