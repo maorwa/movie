@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieComponent } from '../movie/movie.component'
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

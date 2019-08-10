@@ -1,22 +1,22 @@
     <div class="container">
-      <div class="jumbotron" *ngFor="let movie of movieList">
+      <div class="jumbotron"  id = 'myDesign' *ngFor="let movie of movieList">
           <h1>{{ movie.title }} - {{ movie.year }}</h1>
           <div class="row">
           <div class="col-md-4">
             <div class="imgAbt">
               <img [src]="movie.poster" class="rounded float-right">
-            </div>
           </div>
-          <div class="col-md-8">
-          <p class="lead"> Plot: {{ movie.plot }} </p>
+          </div>
+          <div class="col-md-8 text-center"> 
+            <p class="lead"> {{ movie.plot }} </p>
             <video width="70%" height="60%" controls>
                 <source src="assets/trailers/{{movie.title}}{{movie.year}}.mp4" type="video/mp4">
             </video>
-            </div>
+          </div>
           </div>
           <p class="float-right">
-            <button class="btn btn-lg btn-primary" v-on:click="deleteEvent(event.id)" *ngIf="isAdmin">Edit</button>
-            <button class="btn btn-lg btn-danger" v-on:click="deleteEvent(event.id)" *ngIf="isAdmin">Delete</button>
+              <button class="btn btn-lg btn-primary" v-on:click="deleteEvent(event.id)" *ngIf="isAdmin">Edit</button>
+              <button class="btn btn-lg btn-danger" v-on:click="deleteEvent(event.id)" *ngIf="isAdmin">Delete</button>
           </p>
       </div>
     </div>

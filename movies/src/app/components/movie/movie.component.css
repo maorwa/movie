@@ -2,8 +2,7 @@ h1 {
     text-shadow: 4px 4px #F7E48A;
   }
 
-  .newspaper {
-    border: 2px solid #E9ECEF;
-    padding: 10px;
+  #myDesign {
+    border: 2px solid #8aa2f0;
     border-radius: 25px;
   }

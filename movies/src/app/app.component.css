@@ -1,3 +1,22 @@
+@font-face {
+  font-family: "SomeFont";
+  src: url("../assets/fonts/SomeFont.ttf");
+}
+
+@font-face {
+  font-family: "Lobster";
+  src: url("../assets/fonts/Lobster-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Questrial";
+  src: url("../assets/fonts/Questrial-Regular.ttf");
+}
+@font-face {
+  font-family: "Fred";
+  src: url("../assets/fonts/FrederickatheGreat-Regular.ttf");
+}
+
 .main-container {
     /*width: 75%;*/
     padding-left: 30px;
@@ -6,8 +25,7 @@
     padding: 2em;
     margin: 1em;
     border-radius: 7px;
-    box-shadow: 3px 4px 2px 2px #0000007d;
-  
+    box-shadow: 3px 4px 2px 2px #0000007d;  
   }
   
   .app-bar-title {

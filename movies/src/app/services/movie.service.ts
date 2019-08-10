@@ -16,6 +16,14 @@ export class MovieService {
     return this.HttpClient.get<Movie>(this.url);
   }
 
+  create_movie(){
+
+  }
+
+  update_movie(){
+
+  }
+  
   delete_movie(){
     
   }
