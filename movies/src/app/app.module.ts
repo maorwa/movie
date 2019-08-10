@@ -15,6 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { ManagmentComponent } from './components/managment/managment.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
+import { WeatherComponent } from './components/weather/weather.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
     HomeComponent,
     MovieComponent,
     ManagmentComponent,
-    StatisticsComponent
+    StatisticsComponent,
+    WeatherComponent
   ],
   imports: [
     BrowserModule,

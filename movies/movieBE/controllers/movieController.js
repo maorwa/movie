@@ -8,10 +8,15 @@ class movieController{
         let movie = new Movie({
             title: omdbDetails.Title,
             year: year,
+            genre: omdbDetails.Genre,
+            runtime: omdbDetails.Runtime,
             plot: omdbDetails.Plot,
             imdbID: omdbDetails.imdbID,
             country: omdbDetails.Country,
-            poster: omdbDetails.Poster
+            poster: omdbDetails.Poster,
+            votes: parseFloat((omdbDetails.imdbVotes).replace(/,/g, '')),
+            ranking: parseFloat(omdbDetails.imdbRating)
+
         });
         try{
             let doc = await movie.save();
@@ -27,7 +32,7 @@ class movieController{
         }
         catch(err){}
     }
-
+    
     static async findByTitle(movieTitle){
         try{
             let movieList = await Movie.findOne({title: movieTitle});
@@ -36,12 +41,23 @@ class movieController{
         catch(err){}
     }
 
-    static async deleteMovie(movieTitle){
+    static async updateMovie(movieID, movieTitle, movieYear){
         try{
-            await Movie.find({Title: movieTitle}).deleteOne();
+            if(movieID && movieTitle && movieYear){
+                await Movie.updateOne({ _id: movieID }, { $set: { title: movieTitle,
+                year: movieYear}});
+            }
         }
         catch(err){}
     }
+
+    static async deleteMovie(movieID){
+        try{
+            await Movie.find({_id: movieID}).deleteOne();
+        }
+        catch(err){}
+    }
+
     static async _OMDBDetails(title, year){
         return await OMDB.getMovieDetails(title, year);
     }

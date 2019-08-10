@@ -6,6 +6,10 @@ const movieSchema = new Schema({
         type: String,
         required: true
     },
+    genre:{
+        type: String,
+        required: true 
+    },
     year:{
         type: Number,
         require: true,
@@ -25,6 +29,18 @@ const movieSchema = new Schema({
     poster:{
         type: String,
         require: true
+    },
+    runtime:{
+        type: String,
+        require: true 
+    },
+    votes:{
+        type: Number,
+        require: true 
+    },
+    ranking:{
+        type: Number,
+        require: true 
     }
     
 });

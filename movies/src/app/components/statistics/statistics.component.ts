@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
-import { Statistic } from 'src/app/models/statistics';
+import { Movie } from 'src/app/models';
+import { MovieService } from '../../services/movie.service';
 import * as d3 from 'd3';
 
 
@@ -21,11 +22,21 @@ export class StatisticsComponent implements OnInit {
 
   margin = { top: 20, right: 20, bottom: 30, left: 40 };
 
-  constructor() { }
+  constructor(private movieService: MovieService) { }
 
   ngOnInit() {
-    if (!this.movies) { return; }
-    this.createChart();
+    this.get_movies();
+  }
+
+  get_movies(){
+    this.movieService.get_movies().subscribe(
+      (res : Movie[]) => {
+          this.movies = res;
+          this.createChart();
+      },
+      err => {
+         console.log("Error occured");
+      });
   }
 
   private createChart(): void {

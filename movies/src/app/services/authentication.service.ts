@@ -11,6 +11,7 @@ message: string
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthenticationService {
   private loggedInStatus = JSON.parse(localStorage.getItem('loggedIn')||'false');
 

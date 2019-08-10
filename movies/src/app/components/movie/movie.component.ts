@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../../services/movie.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
+
 import { Movie } from 'src/app/models';
 
 @Component({
@@ -30,5 +31,8 @@ export class MovieComponent implements OnInit {
       err => {
          console.log("Error occured");
       });
+  }
+  deleteMovie(movie: Movie){
+    this.movieService.delete_movie(movie).subscribe();
   }
 }
