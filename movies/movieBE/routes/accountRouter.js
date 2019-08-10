@@ -21,8 +21,8 @@ async function createAccount(request, response, next){
         let email = request.body["email"];
         let name = request.body["name"];
         let password = request.body["password"];
-
-        let account = await accountController.createAccount(email, name, password);
+        let isAdmin = request.body["isAdmin"];
+        let account = await accountController.createAccount(email, name, password, isAdmin);
         response.json(
             account
         );
@@ -40,6 +40,7 @@ async function login(request, response, next){
         let account = await accountController.getAccountByEmail(email);
         if(account.length < 1){
             return response.status(401).json({
+                success: false,
                 message: 'Auth failed'
             },);
         }
@@ -47,16 +48,19 @@ async function login(request, response, next){
         passValidation = await bcrypt.compare(password,account[0].password);
         if(!passValidation){
             return response.status(401).json({
+                success: false,
                 message: 'Auth failed'
             });
         }else{
             const privatekey = fs.readFileSync('./keys/private.key','utf8');
             let token = jwt.sign({
                 email: account[0].email,
+                isAdmin: account[0].isAdmin,
                 userId:account[0]._id 
             }, privatekey, {expiresIn : "1h", algorithm : "RS256"});
 
             return response.status(200).json({
+                success: true,
                 message: token
             });
         }

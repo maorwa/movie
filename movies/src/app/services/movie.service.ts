@@ -9,7 +9,7 @@ import { Movie } from 'src/app/models';
   providedIn: 'root'
 })
 export class MovieService {
-  url = "http://localhost:3001/api/movie"
+  private url = "http://localhost:3001/api/movie"
   constructor(private HttpClient:HttpClient) { }
 
   get_movies(): Observable<any>{

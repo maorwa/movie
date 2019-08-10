@@ -1,5 +1,4 @@
 var dbAccessor = require("./db/dbAccessor");
-
 const ROUTES = require("./routes");
 const express = require("express");
 const bodyParser = require("body-parser");

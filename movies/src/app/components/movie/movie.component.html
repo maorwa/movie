@@ -1,13 +1,9 @@
-<div class="w3-container">
-    <div class="col-sm-15">
-      <div class="list-group">
-        <a href="#" class="list-group-item" *ngFor="let movie of movieList">
-          <h4 class="list-group-item-heading">
-          <i class="glyphicon glyphicon-bullhorn"></i> {{ movie.title }}</h4>
-          <h5><i class="glyphicon glyphicon-bullhorn"></i> {{ movie.year }}</h5>
-          <button class="btn btn-xs btn-primary" v-on:click="deleteEvent(event.id)"><span class="glyphicon glyphicon-edit"></span>Edit</button>
-          <button class="btn btn-xs btn-danger" v-on:click="deleteEvent(event.id)">Delete</button>
-        </a>
+    <div class="container">
+      <div class="jumbotron" *ngFor="let movie of movieList">
+          <h1>{{ movie.title }} - {{ movie.year }}</h1>
+          <p class="lead"> {{ movie.plot }} </p>
+          <img [src]="movie.poster" class="rounded float-right">
+          <p><button class="btn btn-lg btn-primary" v-on:click="deleteEvent(event.id)" *ngIf="isAdmin">Edit</button>
+          <button class="btn btn-lg btn-danger" v-on:click="deleteEvent(event.id)" *ngIf="isAdmin">Delete</button></p>
       </div>
     </div>
-</div>

@@ -3,12 +3,13 @@ var Account = require("../models/account");
 
 class accountController{
     
-    static async createAccount(email, name, password){
+    static async createAccount(email, name, password, isAdmin){
         try{
             let account = new Account({
                 email: email,
                 name: name,
-                password: await bcrypt.hash(password, 10)
+                password: await bcrypt.hash(password, 10),
+                isAdmin: isAdmin
             });
             let doc = await account.save();
             return doc;

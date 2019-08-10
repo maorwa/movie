@@ -13,13 +13,15 @@ import { MatInputModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material';
 import { HomeComponent } from './components/home/home.component';
 import { MovieComponent } from './components/movie/movie.component';
+import { ManagmentComponent } from './components/managment/managment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    MovieComponent
+    MovieComponent,
+    ManagmentComponent
   ],
   imports: [
     BrowserModule,

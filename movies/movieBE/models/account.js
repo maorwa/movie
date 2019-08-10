@@ -14,6 +14,10 @@ const accountSchema = new Schema({
     password:{
         type: String,
         require: true
+    },
+    isAdmin:{
+        type: Boolean,
+        require: true
     }
 });
 
