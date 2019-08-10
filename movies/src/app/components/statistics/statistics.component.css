@@ -1,11 +1,16 @@
 div {
     text-align: center;
 }
-/* .leftdiv {
+ .leftdiv {
     width: 50%;
     float: left;
+    height: 100%;
 }
 .rightdiv {
     width: 50%;
     float: right;
-} */
+    height: 100%;
+}
+.containerdiv {
+    height: 200px;
+}

@@ -64,7 +64,7 @@ export class StatisticsComponent implements OnInit {
 
     rankingGraph.append('g')
       .attr('class', 'axis axis--y')
-      .call(d3.axisLeft(rankingY).ticks(10))
+      .call(d3.axisLeft(rankingY).ticks(8))
       .append('text')
       .attr('transform', 'rotate(-90)')
       .attr('y', 6)
@@ -113,7 +113,7 @@ export class StatisticsComponent implements OnInit {
 
     votesGraph.append('g')
       .attr('class', 'axis axis--y')
-      .call(d3.axisLeft(votesY).ticks(10))
+      .call(d3.axisLeft(votesY).ticks(8))
       .append('text')
       .attr('transform', 'rotate(-90)')
       .attr('y', 6)
