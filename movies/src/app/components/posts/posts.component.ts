@@ -1,4 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Movie } from 'src/app/models';
+
+interface Post {
+  title: string;
+  authorName: string;
+  date: Date;
+  content: string;
+  movie: Movie;
+  image?: string;
+  comments: Comment[];
+}
+
+interface Comment {
+  title: string;
+  authorName: string;
+  date: Date;
+  content: string;
+}
 
 @Component({
   selector: 'app-posts',
@@ -7,15 +26,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsComponent implements OnInit {
 
-  post = { title: "bla",
-            authorName: "Noa",
-            Date: new Date(),
-            content: "very good movie",
-            movie: {name: "The Lion King"}};
+  posts: Post[] = []; 
 
   constructor() { }
 
   ngOnInit() {
+    this.getPosts();
   }
 
+  getPosts(): void {
+    this.posts[0] = { title: "bla",
+                      authorName: "Noa",
+                      date: new Date(),
+                      content: "very good movie",
+                      movie: {title: "The Lion King"},
+                      comments: [{title: "OK", authorName: "Not Noa", date:new Date(), content: "balbalbalabl"},
+                                 {title: "OK2", authorName: "Not Noa2", date:new Date(), content: "balbalbalabl2"}]};
+  }
 }
+

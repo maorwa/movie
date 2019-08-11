@@ -1,5 +1,4 @@
-<p>posts works!</p>
-<div>
+<div *ngFor="let post of posts">
     <!-- POST CARD -->
     <mat-card class="displayed-post">
       <mat-card-title>
@@ -21,10 +20,10 @@
       </mat-card-content>
     </mat-card>
     <!-- ALL POST COMMENTS -->
-    <!-- <div>
+    <div>
       <div class="comments-title"> Comments: </div>
       <div *ngIf="post.comments.length == 0">
-        No comments yet. Be first to leave a comment!
+        Be the first to leave a comment!
       </div>
       <mat-card class="comment-card" *ngFor="let comment of post.comments; let i = index" [attr.data-index]="i">
         <mat-card-title>
@@ -51,29 +50,29 @@
           <button mat-button (click)="onCommentRemove(comment._id)">Remove</button>
         </mat-card-actions>
       </mat-card>
-    </div> -->
+    </div>
     <!-- ADDING NEW COMMENT  -->
-    <!-- <div class="new-comment">
-      <div>
-        <mat-form-field class="new-comment-field">
-          <input required matInput placeholder="Your name" #authorName>
-        </mat-form-field>
 
-        <mat-form-field class="new-comment-field">
-          <input required matInput placeholder="Title" #title>
-        </mat-form-field>
+    <div class="new-comment">
+        <p>Add a new comment:</p>
+        <div>
+            <mat-form-field class="new-comment-field">
+              <input required matInput placeholder="Your name" #authorName>
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field class="new-comment-field">
+              <input required matInput placeholder="Title" #title>
+            </mat-form-field>
       </div>
 
       <div>
-        <mat-form-field class="new-comment-field">
-          <input matInput placeholder="Your site Url" #siteUrl>
-        </mat-form-field>
-
         <mat-form-field class="new-comment-content-field">
           <textarea required matInput placeholder="Content" rows="2" #content></textarea>
         </mat-form-field>
       </div>
 
       <button mat-button id="add-comment-btn" (click)="addComment(title, authorName, siteUrl, content);">Add Comment</button>
-    </div> -->
+    </div>
 </div>
