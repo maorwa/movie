@@ -1,5 +1,6 @@
 const Movie = require("../models/movieModel");
 const OMDB = require('../webServices/omdb');
+const facebook = require('../webServices/facebook');
 
 class movieController{
     
@@ -20,6 +21,7 @@ class movieController{
         });
         try{
             let doc = await movie.save();
+            this._facebookPost(movie.title);
             return doc;
         }
         catch(err){}
@@ -60,6 +62,10 @@ class movieController{
 
     static async _OMDBDetails(title, year){
         return await OMDB.getMovieDetails(title, year);
+    }
+
+    static async _facebookPost(title){
+        return await facebook.getMovieDetails(title);
     }
 }
 module.exports = movieController;

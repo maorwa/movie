@@ -1,0 +1,73 @@
+<html>
+<head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+<div class="container" style="padding: 20px">
+    <div  style="padding: 10px">
+        <button button="submit" class="btn btn-lg btn-primary" color="primary">+ Add Post</button>
+    </div>
+    <div class="jumbotron"  id = 'myDesign' *ngFor="let post of posts">
+      <div class="media">
+    	<img class="media-object" [src]=post.imageURL>
+        <div class="media-body" style="padding: 10px;">
+    		<h3 class="media-heading">{{ post.title }}</h3>
+          <p> {{ post.content }} </p>
+       </div>
+       <div>
+       <p class="text-left">{{ post.movie }}</p>
+    </div>
+    </div>
+    <ul class="list-inline list-unstyled">
+        <li><span><i class="glyphicon glyphicon-calendar"></i>{{ post.date | date:"short" }} </span></li>
+        <li>|</li>
+            <span> By {{ post.authorName }} </span>
+        <li>|</li>
+        <span><i class="glyphicon glyphicon-comment"></i> 2 comments</span>
+    </ul>
+ <div>
+        <div class="comments-title"> Comments: </div>
+            <div *ngIf="post.comments.length == 0">
+            Be the first to leave a comment!
+            </div>  
+        <mat-card id = 'commentDesign' *ngFor="let comment of post.comments; let i = index" [attr.data-index]="i">
+          <mat-card-title>
+            <b>{{comment.title}}</b>
+          </mat-card-title>
+          <mat-card-subtitle>
+            <span> Author name:
+              <b>{{comment.authorName}}</b>
+            </span>
+          </mat-card-subtitle>
+          <mat-card-content>
+            <span *ngIf="!isEditing;">
+              <b>{{comment.content}}</b>
+            </span>
+            <span *ngIf="currentEditIndex==i">
+              <textarea rows="4" cols="50" [(ngModel)]="comment.content"></textarea>
+            </span>
+            <div *ngIf="comment.authorSiteURL">
+              <b>siteURL: {{comment.authorSiteURL}}</b>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button (click)="onEditToggle(i)" *ngIf="isAdmin">{{isEditing ? 'Save' : 'Edit'}}</button>
+            <button mat-button (click)="onCommentRemove(comment._id)" *ngIf="isAdmin">Remove</button>
+          </mat-card-actions>
+        </mat-card>
+     </div> 
+     <div class="new-comment" *ngIf="1==2">
+            <p>Add a new comment:</p>
+                <div class="jumbotron"  id = 'myDesign'>
+                    <input required matInput placeholder="Your name" #authorName>
+                    <input required matInput placeholder="Title" #title>
+                    <textarea required matInput placeholder="Content" rows="2" #content></textarea>
+                    <button mat-button id="add-comment-btn" (click)="addComment(title, authorName, siteUrl, content);">Add Comment</button>
+                </div>  
+            </div></div>
+        
+ </div>
+</body>
+</html>

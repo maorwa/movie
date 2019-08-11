@@ -53,7 +53,7 @@ export class StatisticsComponent implements OnInit {
 
     const rankingWidth = rankingElement.offsetWidth - this.margin.left - this.margin.right;
     const rankingHeight = rankingElement.offsetHeight - this.margin.top - this.margin.bottom;
-
+    
     const rankingX = d3
       .scaleBand()
       .rangeRound([0, rankingWidth])

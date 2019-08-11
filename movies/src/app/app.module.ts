@@ -18,6 +18,13 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
 import { WeatherComponent } from './components/weather/weather.component';
 import { MapModelComponent } from './components/map-model/map-model.component';
 import { AgmCoreModule } from '@agm/core';
+import { PostsComponent } from './components/posts/posts.component';
+
+import { MatExpansionModule } from '@angular/material';
+import { MatSortModule } from '@angular/material/sort';
+import { MatCardModule } from '@angular/material';
+import { MatSelectModule } from '@angular/material';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -28,7 +35,8 @@ import { AgmCoreModule } from '@agm/core';
     ManagmentComponent,
     StatisticsComponent,
     WeatherComponent,
-    MapModelComponent
+    MapModelComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +48,11 @@ import { AgmCoreModule } from '@agm/core';
     MatCheckboxModule,
     MatInputModule,
     MatFormFieldModule,
+    MatExpansionModule,
+    MatSortModule,
+    MatCardModule, 
+    MatSelectModule, 
+    MatTooltipModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyC6Oo3L2h-hkBHymAhprLoXQX9tnDwbsNs'
     })
