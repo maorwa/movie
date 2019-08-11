@@ -1,0 +1,13 @@
+<div class="jumbotron"  id = 'myDesign'>
+  <h3 class="map-title">{{mapTitle}}</h3>
+
+  <agm-map [zoom]=zoom [latitude]="latCenter" [longitude]="lngCenter">
+    <agm-marker 
+    *ngFor="let m of markers"
+    [label]="m.label"
+    [title]="m.label"
+    [latitude]="m.lat"
+    [longitude]="m.lng">
+  </agm-marker>
+  </agm-map>
+</div>

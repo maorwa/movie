@@ -16,6 +16,8 @@ import { MovieComponent } from './components/movie/movie.component';
 import { ManagmentComponent } from './components/managment/managment.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { WeatherComponent } from './components/weather/weather.component';
+import { MapModelComponent } from './components/map-model/map-model.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { WeatherComponent } from './components/weather/weather.component';
     MovieComponent,
     ManagmentComponent,
     StatisticsComponent,
-    WeatherComponent
+    WeatherComponent,
+    MapModelComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,10 @@ import { WeatherComponent } from './components/weather/weather.component';
     MatButtonModule,
     MatCheckboxModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyC6Oo3L2h-hkBHymAhprLoXQX9tnDwbsNs'
+    })
     ],
   providers: [],
   bootstrap: [AppComponent]

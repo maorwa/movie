@@ -9,7 +9,7 @@ import { WeatherService } from "../../services/weather.service";
 export class WeatherComponent implements OnInit {
 
   weather = { temp: "Loading..." };
-
+  icon;
   constructor(private weatherService: WeatherService) {
     this.setWeather = this.setWeather.bind(this);
   }
@@ -17,9 +17,10 @@ export class WeatherComponent implements OnInit {
   ngOnInit() {
     this.weatherService.getWeather().then(this.setWeather);
   }
-
+  
   setWeather(response) {
     this.weather.temp = response.main.temp;
+    this.icon = response.weather[0].icon;
   }
 
 }

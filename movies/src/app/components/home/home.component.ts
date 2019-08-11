@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieComponent } from '../movie/movie.component'
+import { MapModelComponent } from '../map-model/map-model.component'
 
 @Component({
   selector: 'app-home',

@@ -1,0 +1,14 @@
+agm-map {
+    height: 500px;
+  }
+
+map-title {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 32px;
+}
+
+#myDesign {
+  border: 2px solid #8aa2f0;
+  border-radius: 25px;
+}
