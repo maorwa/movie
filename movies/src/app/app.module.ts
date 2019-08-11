@@ -16,6 +16,13 @@ import { MovieComponent } from './components/movie/movie.component';
 import { ManagmentComponent } from './components/managment/managment.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { WeatherComponent } from './components/weather/weather.component';
+import { PostsComponent } from './components/posts/posts.component';
+
+import { MatExpansionModule } from '@angular/material';
+import { MatSortModule } from '@angular/material/sort';
+import { MatCardModule } from '@angular/material';
+import { MatSelectModule } from '@angular/material';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -25,7 +32,8 @@ import { WeatherComponent } from './components/weather/weather.component';
     MovieComponent,
     ManagmentComponent,
     StatisticsComponent,
-    WeatherComponent
+    WeatherComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +44,12 @@ import { WeatherComponent } from './components/weather/weather.component';
     MatButtonModule,
     MatCheckboxModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatExpansionModule,
+    MatSortModule,
+    MatCardModule, 
+    MatSelectModule, 
+    MatTooltipModule
     ],
   providers: [],
   bootstrap: [AppComponent]

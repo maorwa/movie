@@ -5,11 +5,13 @@ import { LoginComponent } from './components/login/login.component';
 import { ManagmentComponent } from './components/managment/managment.component';
 import { AuthGuard } from 'src/app/guards/auth.guard';
 import { StatisticsComponent } from './components/statistics/statistics.component';
+import { PostsComponent } from './components/posts/posts.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'management', component: ManagmentComponent, canActivate: [AuthGuard] },
   { path: 'statistics', component: StatisticsComponent },
+  { path: 'posts', component: PostsComponent },
   { path: '', component: HomeComponent }
 ];
 
