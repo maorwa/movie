@@ -30,8 +30,8 @@
   
   .app-bar-title {
     text-align: center;
-    color: rgb(193, 16, 16);
-    /*color: rgb(39, 39, 39);*/
+    /* color: rgb(193, 16, 16); */
+    color: rgb(154, 122, 243);
     font-family: Fred;
     /*font-family: Lobster;*/
     font-size: 350%;

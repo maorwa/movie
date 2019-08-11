@@ -18,6 +18,7 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
 import { WeatherComponent } from './components/weather/weather.component';
 import { MapModelComponent } from './components/map-model/map-model.component';
 import { AgmCoreModule } from '@agm/core';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AgmCoreModule } from '@agm/core';
     ManagmentComponent,
     StatisticsComponent,
     WeatherComponent,
-    MapModelComponent
+    MapModelComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
