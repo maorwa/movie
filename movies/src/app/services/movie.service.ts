@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { map } from "rxjs/operators";
 import { Movie } from 'src/app/models';
+
 
 
 @Injectable({
@@ -15,6 +16,18 @@ export class MovieService {
 
   get_movies(): Observable<any>{
     return this.HttpClient.get<Movie>(this.url);
+  }
+
+
+  getMoviesByFilter() {
+    return this.HttpClient
+    .get(this.url)
+    .pipe(
+      map((movies: any) => { 
+        return movies.movie;
+      })
+    )
+    .toPromise();
   }
 
   create_movie(){

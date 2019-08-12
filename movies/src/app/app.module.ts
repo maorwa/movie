@@ -18,6 +18,7 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
 import { WeatherComponent } from './components/weather/weather.component';
 import { MapModelComponent } from './components/map-model/map-model.component';
 import { AgmCoreModule } from '@agm/core';
+import { SearchComponent } from './components/search/search.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { NewPostComponent } from './components/new-post/new-post.component';
 import { MatExpansionModule } from '@angular/material';
@@ -26,6 +27,10 @@ import { MatCardModule } from '@angular/material';
 import { MatDialogModule } from '@angular/material';
 import { MatSelectModule } from '@angular/material';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MovieNamePipe } from './components/search/pipes/movie-name.pipe';
+import { MovieGenrePipe } from './components/search/pipes/movie-genre.pipe';
+import { MovieProductionYearPipe } from './components/search/pipes/movie-production-year.pipe';
+import { MovieProductionCountryPipe } from './components/search/pipes/movie-production-country.pipe';
 import { from } from 'rxjs';
 
 @NgModule({
@@ -38,7 +43,12 @@ import { from } from 'rxjs';
     StatisticsComponent,
     WeatherComponent,
     MapModelComponent,
+    SearchComponent,
     PostsComponent,
+    MovieNamePipe,
+    MovieGenrePipe,
+    MovieProductionYearPipe,
+    MovieProductionCountryPipe,
     NewPostComponent
   ],
   imports: [
