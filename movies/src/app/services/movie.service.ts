@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Movie } from 'src/app/models';
-import { json } from 'd3';
 
 
 @Injectable({

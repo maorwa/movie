@@ -9,7 +9,7 @@ import { WeatherService } from "../../services/weather.service";
 export class WeatherComponent implements OnInit {
 
   weather = { temp: "Loading..." };
-  icon;
+  icon = '01n';
   constructor(private weatherService: WeatherService) {
     this.setWeather = this.setWeather.bind(this);
   }

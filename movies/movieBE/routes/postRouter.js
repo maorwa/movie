@@ -18,10 +18,9 @@ async function createPost(request, response, next){
         let title = request.body["title"];
         let author = request.body["author"];
         let content = request.body["content"];
-        let imageURL = request.body["imageURL"];
         let movie = request.body["movie"];
 
-        let post = await postController.createPost(title, author, content, imageURL, movie)
+        let post = await postController.createPost(title, author, content, movie)
         
         response.json(
             post

@@ -3,17 +3,17 @@ var movieController = require("../controllers/movieController");
 
 class postController{
     
-    static async createPost(title, authorName, content, imageURL, movieTitle){
+    static async createPost(title, authorName, content, movieTitle){
         
         let date = new Date();
-        let movie = (await movieController.findByTitle(movieTitle))[0];
+        let movie = (await movieController.findByTitle(movieTitle));
 
         let post = new Post({
             title: title,
             authorName: authorName,
             date: date,
             content: content,
-            imageURL: imageURL,
+            imageURL: movie.poster,
             comments: [],
             movie: movie
 

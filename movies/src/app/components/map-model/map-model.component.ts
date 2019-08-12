@@ -49,7 +49,7 @@ export class MapModelComponent implements OnInit {
     this.movieService.get_movies().subscribe(
       (res : Movie[]) => {
           this.movieList = res;
-          this.getEventLocationsForMap(res);
+          console.log(this.movieList);
       },
       err => {
          console.log("Error occured");
