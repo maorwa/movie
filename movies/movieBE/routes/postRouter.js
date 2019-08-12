@@ -32,4 +32,5 @@ async function createPost(request, response, next){
 }
 router.get("/",post);
 router.post("/",createPost);
+// router.post("/post/filter",bla);
 module.exports = router;
