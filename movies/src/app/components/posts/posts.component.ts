@@ -32,10 +32,11 @@ export class PostsComponent implements OnInit {
     }
 
     create_post(post){
+      console.log(post);
       this.postService.create_post(post).subscribe();
     }
 
     open() {
-      this.dialog.open(NewPostComponent);
+      let dialogRef = this.dialog.open(NewPostComponent);
     }
   }
