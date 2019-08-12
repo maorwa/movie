@@ -4,5 +4,40 @@
         <canvas id="TitleSearchCanvas" width="260" height="70" style="border:2px solid #8aa2f0;"></canvas>
     </section>
 </div>
-        
-     
+<div>
+    <mat-form-field class="new-post-short-field">
+        <input matInput placeholder="Movie Name" [(ngModel)]="name">
+    </mat-form-field>
+    
+    <mat-form-field class="new-post-short-field">
+      <input matInput placeholder="Genre" [(ngModel)]="genre">
+    </mat-form-field>
+  
+    <mat-form-field class="new-post-short-field">
+      <input matInput type="number" min="1920" max={{this.currYear}} placeholder="Production Year" [(ngModel)]="productionYear">
+    </mat-form-field>
+    
+    <mat-form-field class="new-post-short-field">
+        <input matInput placeholder="Production Country" [(ngModel)]="productionCountry">
+    </mat-form-field>
+
+    <div class="movies-table-container mat-elevation-z8">
+      <table id="movies-table" matSort (matSortChange)="sortData($event)">
+        <thead>
+          <th mat-sort-header="name">Movie Name</th>
+          <th mat-sort-header="genre">Genre</th>
+          <th mat-sort-header="productionYear">Production Year</th>
+          <th mat-sort-header="productionCountry">Production Country</th>
+        </thead>
+        <!-- <tbody>
+          <tr *ngFor="let movie of sortedMovies | heroNameFilter:name | heroHeroNameFilter:genre | heroTendencyFilter:productionYear | heroFirstAppearanceFilter:productionCountry">
+              <td>{{movie.name}}</td>
+              <td>{{movie.genre}}</td>
+              <td>{{movie.productionYear}}</td>
+              <td>{{movie.productionCountry}}</td>
+          </tr>
+        </tbody> -->
+      </table>
+    </div>
+</div>
+      
