@@ -49,7 +49,7 @@ export class MapModelComponent implements OnInit {
     this.movieService.get_movies().subscribe(
       (res : Movie[]) => {
           this.movieList = res;
-          console.log(this.movieList);
+          this.getEventLocationsForMap(this.movieList);
       },
       err => {
          console.log("Error occured");
@@ -62,6 +62,9 @@ export class MapModelComponent implements OnInit {
   }
   // Set the marked places that exist in the calendar to the map
   getEventLocationsForMap(movieList) {
+    movieList.some(function (a) {
+      console.log(a);
+    });
 
     movieList.forEach((movie) => {
       let cord = this.getCoordinates(movie.country);
