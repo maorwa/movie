@@ -6,6 +6,7 @@ class movieController{
     
     static async createMovie(title, year){
         let omdbDetails = await this._OMDBDetails(title,year);
+        
         let movie = new Movie({
             title: omdbDetails.Title,
             year: year,

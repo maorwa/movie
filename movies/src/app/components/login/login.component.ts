@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   loginUser(){
     this.Auth.getUserDetails(this.email,this.password).subscribe(data =>{
       if(data.success){
-        this.router.navigate(['Management']);
+        this.router.navigate(['management']);
         this.Auth.setLoggedIn(true);
         console.log(data.message);
       }else{

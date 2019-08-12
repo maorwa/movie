@@ -7,17 +7,17 @@
 <body>
 <div class="container" style="padding: 20px">
     <div  style="padding: 10px">
-        <button button="submit" class="btn btn-lg btn-primary" color="primary">+ Add Post</button>
+        <button button="submit" class="btn btn-lg btn-primary" color="primary" (click)="open()">+ Add Post</button>
     </div>
     <div class="jumbotron"  id = 'myDesign' *ngFor="let post of posts">
       <div class="media">
     	<img class="media-object" [src]=post.imageURL>
         <div class="media-body" style="padding: 10px;">
-    		<h3 class="media-heading">{{ post.title }}</h3>
+    		<h3 class="media-heading"><u>{{ post.title }}</u></h3>
           <p> {{ post.content }} </p>
        </div>
        <div>
-       <p class="text-left">{{ post.movie }}</p>
+       <p class="text-left">{{ post.movie.title }}</p>
     </div>
     </div>
     <ul class="list-inline list-unstyled">
@@ -25,7 +25,7 @@
         <li>|</li>
             <span> By {{ post.authorName }} </span>
         <li>|</li>
-        <span><i class="glyphicon glyphicon-comment"></i> 2 comments</span>
+        <span><i class="glyphicon glyphicon-comment"></i> {{ post.comments.length }} comments </span>
     </ul>
  <div>
         <div class="comments-title"> Comments: </div>

@@ -1,5 +1,5 @@
 const request = require("request-promise");
-const key = 'EAAFL50AZBi3gBAEo6HPiKZBjShZAanqNeAQfZABZAvdZBH3piD7LZAYhu5SnKDCqnTxlTLWU9tv78fW90ZAOMyRPmjdOxQ5IvoG7Mgskj9VvRZATZCpFhUOSjhrs54q1Ep4TZAFwi2AVgiY60y8VEol9tROcMJxFRyYztATOsVqUkF0GsFcZB6Bil9YR9MnAranKZAe8ZD';
+const key = 'EAAFL50AZBi3gBAAKvjo3KgHaFCELVyRLfVYpyKCNu4PlUUEZBc97veJ166Dz3FBXJKOoOHIuZAc3cziVbksgJBjGDpP8qlfGVPJ5HZAHF5uzVbOgBNliMUX42ZASFfQHGurZCVoW5IucpiMlsoeRZB6DKfcuEDoKyElPl2Opfswmrml0l2H586jymQycMSjFbIZD';
 const url = 'https://graph.facebook.com/691063014706849/feed';
 
 class facebook{

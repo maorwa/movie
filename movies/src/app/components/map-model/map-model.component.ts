@@ -63,7 +63,7 @@ export class MapModelComponent implements OnInit {
   // Set the marked places that exist in the calendar to the map
   getEventLocationsForMap(movieList) {
     movieList.some(function (a) {
-      console.log(a);
+      
     });
 
     movieList.forEach((movie) => {
