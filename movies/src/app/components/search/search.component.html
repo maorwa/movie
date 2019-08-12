@@ -28,15 +28,17 @@
           <th mat-sort-header="genre">Genre</th>
           <th mat-sort-header="productionYear">Production Year</th>
           <th mat-sort-header="productionCountry">Production Country</th>
+          <th mat-sort-header="ranking">Production Country</th>
         </thead>
-        <!-- <tbody>
-          <tr *ngFor="let movie of sortedMovies | heroNameFilter:name | heroHeroNameFilter:genre | heroTendencyFilter:productionYear | heroFirstAppearanceFilter:productionCountry">
+        <tbody>
+          <tr *ngFor="let movie of sortedMovies | movieNameFilter:name | movieGenreFilter:genre | movieProductionYearFilter:productionYear | movieProductionCountryFilter:productionCountry">
               <td>{{movie.name}}</td>
               <td>{{movie.genre}}</td>
               <td>{{movie.productionYear}}</td>
               <td>{{movie.productionCountry}}</td>
+              <td>{{movie.ranking}}</td>
           </tr>
-        </tbody> -->
+        </tbody>
       </table>
     </div>
 </div>

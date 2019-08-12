@@ -26,6 +26,10 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material';
 import { MatSelectModule } from '@angular/material';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MovieNamePipe } from './components/search/pipes/movie-name.pipe';
+import { MovieGenrePipe } from './components/search/pipes/movie-genre.pipe';
+import { MovieProductionYearPipe } from './components/search/pipes/movie-production-year.pipe';
+import { MovieProductionCountryPipe } from './components/search/pipes/movie-production-country.pipe';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     WeatherComponent,
     MapModelComponent,
     SearchComponent,
-    PostsComponent
+    PostsComponent,
+    MovieNamePipe,
+    MovieGenrePipe,
+    MovieProductionYearPipe,
+    MovieProductionCountryPipe
   ],
   imports: [
     BrowserModule,
