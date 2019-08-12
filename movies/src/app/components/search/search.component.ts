@@ -42,7 +42,7 @@ export class SearchComponent implements OnInit {
   }
 
   getMovies() {
-    this.movieService.getMoviesByFilter().then((movies: any) => {
+    this.movieService.get_movies().subscribe((movies: any) => {
       this.movies = movies;
       this.sortedMovies = this.movies.slice();
     });

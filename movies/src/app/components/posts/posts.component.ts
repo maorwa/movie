@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatCardModule, MatDialog } from '@angular/material';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PostService } from '../../services/post.service';
 import { NewPostComponent } from '../new-post/new-post.component'
 import { Post } from 'src/app/models'; 
