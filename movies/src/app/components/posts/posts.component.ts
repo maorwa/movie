@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
+import { MatCardModule, MatDialog } from '@angular/material';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PostService } from '../../services/post.service';
-
+import { NewPostComponent } from '../new-post/new-post.component'
 import { Post } from 'src/app/models'; 
 
 @Component({
@@ -13,7 +14,7 @@ export class PostsComponent implements OnInit {
   
     posts: Post[] = []; 
   
-    constructor(private postService: PostService) { }
+    constructor(public postService: PostService, public dialog: MatDialog ) { }
   
     ngOnInit() {
       this.get_posts();
@@ -32,5 +33,9 @@ export class PostsComponent implements OnInit {
 
     create_post(post){
       this.postService.create_post(post).subscribe();
+    }
+
+    open() {
+      this.dialog.open(NewPostComponent);
     }
   }

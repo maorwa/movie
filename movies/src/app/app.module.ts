@@ -19,12 +19,14 @@ import { WeatherComponent } from './components/weather/weather.component';
 import { MapModelComponent } from './components/map-model/map-model.component';
 import { AgmCoreModule } from '@agm/core';
 import { PostsComponent } from './components/posts/posts.component';
-
+import { NewPostComponent } from './components/new-post/new-post.component';
 import { MatExpansionModule } from '@angular/material';
 import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material';
+import { MatDialogModule } from '@angular/material';
 import { MatSelectModule } from '@angular/material';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     StatisticsComponent,
     WeatherComponent,
     MapModelComponent,
-    PostsComponent
+    PostsComponent,
+    NewPostComponent
   ],
   imports: [
     BrowserModule,
@@ -51,12 +54,14 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatExpansionModule,
     MatSortModule,
     MatCardModule, 
-    MatSelectModule, 
+    MatSelectModule,
+    MatDialogModule, 
     MatTooltipModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyC6Oo3L2h-hkBHymAhprLoXQX9tnDwbsNs'
+      apiKey: 'AIzaSyBbdgJZ77t_wpS9ZbNEW6aBQW-JgaEieso'
     })
     ],
+  entryComponents: [NewPostComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
