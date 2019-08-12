@@ -8,15 +8,15 @@ import { Sort } from '@angular/material';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  movieName;
-  movieGenre;
+  name;
+  genre;
   productionYear;
   productionCountry;
   currYear: number = new Date().getFullYear();
   sortedMovies = [];
   movies = [];
 
-  constructor(private movieService = MovieService) { 
+  constructor(private movieService: MovieService) { 
     this.getMovies = this.getMovies.bind(this);
     this.sortData = this.sortData.bind(this);
   }          
@@ -42,7 +42,7 @@ export class SearchComponent implements OnInit {
   }
 
   getMovies() {
-    this.movieService.get_movies().then((movies: any) => {
+    this.movieService.getMoviesByFilter().then((movies: any) => {
       this.movies = movies;
       this.sortedMovies = this.movies.slice();
     });
