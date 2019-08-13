@@ -63,7 +63,7 @@ class postController {
         });
 
         let options = {
-            k: 2,
+            k: 1,
             weights: genrewights,
         };
 
@@ -91,4 +91,4 @@ class postController {
         return selectedMovie[0].title;
     }
 }
-module.exports = postController;#
+module.exports = postController;
