@@ -23,33 +23,4 @@
               <button class="btn btn-lg btn-danger" (click)="deleteMovie(movie)" *ngIf="isAdmin">Delete</button>
           </p>
       </div>
-      <div class="col-md-8 text-center">
-        <h3>Genre: {{ movie.genre }}</h3>
-        <p class="lead">{{ movie.plot }}</p>
-        <h5>Runtime: {{ movie.runtime }}</h5>
-        <video width="70%" height="60%" controls>
-          <source
-            src="assets/trailers/{{ movie.title }} - {{ movie.year }}.mp4"
-            type="video/mp4"
-          />
-        </video>
-      </div>
-    </div>
-    <p class="float-right">
-      <button
-        class="btn btn-lg btn-primary"
-        (click)="editMovie(movie)"
-        *ngIf="isAdmin"
-      >
-        Edit
-      </button>
-      <button
-        class="btn btn-lg btn-danger"
-        (click)="deleteMovie(movie)"
-        *ngIf="isAdmin"
-      >
-        Delete
-      </button>
-    </p>
-  </div>
 </div>
