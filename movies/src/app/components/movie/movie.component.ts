@@ -30,6 +30,9 @@ export class MovieComponent implements OnInit {
          console.log("Error occured");
       });
   }
+  editMovie(movie: Movie){
+    
+  }
   deleteMovie(movie: Movie){
     this.movieService.delete_movie(movie).subscribe();
   }

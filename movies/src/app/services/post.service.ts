@@ -17,14 +17,13 @@ export class PostService {
     return this.HttpClient.get<Post>(this.url);
   }
 
-  create_post(post: Post){
+  create_post(post){
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
-      }),
-      body: post
+      }) 
     };
-    return this.HttpClient.post<Post>(this.url,httpOptions);
+    return this.HttpClient.post(this.url,post ,httpOptions);
   }
   
   delete_Post(post: Post){

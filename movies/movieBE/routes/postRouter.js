@@ -4,6 +4,7 @@ var postController = require("../controllers/postController");
 
 async function post(request, response, next){
     try{
+        console.log(request);
         let post = null;
         post = await postController.findAll();
         response.json(
@@ -21,7 +22,7 @@ async function createPost(request, response, next){
         let movie = request.body["movie"];
 
         let post = await postController.createPost(title, author, content, movie)
-        
+
         response.json(
             post
         );

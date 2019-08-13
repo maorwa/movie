@@ -1,0 +1,30 @@
+<div class="new-comment">
+    <div>
+        <mat-form-field class="new-comment-field">
+            <input required matInput placeholder="Title" [(ngModel)]="title">
+        </mat-form-field>
+
+    </div>
+    <div>
+        <mat-form-field class="new-post-short-field">
+            <mat-select [(ngModel)]="movie" placeholder="Choose A Movie">
+                <mat-option *ngFor="let movie of movieList" [value]="movie">
+                    {{ movie.title === '' ? 'All' : movie.title }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="new-comment-field">
+            <input required matInput placeholder="Your name" [(ngModel)]=authorName>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field class="new-comment-content-field">
+            <textarea required matInput placeholder="Content" rows="7" [(ngModel)]=content></textarea>
+        </mat-form-field>
+    </div>
+
+<button mat-button mat-dialog-close  id="add-comment-btn" (click)="closeDialog()">Submit</button>
+</div>
