@@ -16,12 +16,4 @@ app.all("*",(req, res, next)=>{
 app.use("/api", ROUTES);
 
 var server = app.listen(3001);
-var io = require('socket.io').listen(server);
-
-io.on('connection', function(socket){
-  io.emit('emitting','test');
-  socket.on('postCreated', function(){
-    io.emit('refreshPostPage');  
-  });
-});
-
+global.io = require('socket.io').listen(server);

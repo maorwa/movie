@@ -3,6 +3,7 @@ import { MatCardModule, MatDialog } from '@angular/material';
 import { PostService } from '../../services/post.service';
 import { NewPostComponent } from '../new-post/new-post.component'
 import { AuthenticationService } from '../../services/authentication.service';
+import * as io from 'socket.io-client';
 import { Post } from 'src/app/models';
 
 @Component({
@@ -14,12 +15,18 @@ export class PostsComponent implements OnInit {
   
     posts: Post[] = []; 
     isAdmin;
+    socket;
 
-    constructor(public postService: PostService, public dialog: MatDialog, private Auth: AuthenticationService) { }
+    constructor(public postService: PostService, public dialog: MatDialog, private Auth: AuthenticationService) { 
+      this.socket = io('http://localhost:3001');
+    }
   
     ngOnInit() {
       this.get_posts();
       this.isAdmin = this.Auth.isLoggedIn;
+      this.socket.on("refreshPost", () => {
+        this.get_posts();
+      })
     }
 
     get_posts(){
@@ -33,15 +40,12 @@ export class PostsComponent implements OnInit {
     }
 
     create_post(post){
-      this.postService.create_post(post).subscribe( () => {
-        this.get_posts();
-      });
+      this.postService.create_post(post).subscribe();
     }
 
     deleteMovie(post: Post){
-      this.postService.delete_Post(post).subscribe( () => {
-        this.get_posts();
-      });
+      console.log(post);
+      this.postService.delete_Post(post).subscribe();
     }
 
     open() {

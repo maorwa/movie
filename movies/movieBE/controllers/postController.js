@@ -1,6 +1,7 @@
 var Post = require("../models/postModel");
 var movieController = require("../controllers/movieController");
 const knn = require('alike');
+const facebook = require('../webServices/facebook');
 
 class postController {
 
@@ -20,7 +21,9 @@ class postController {
         });
         try {
             let doc = await post.save();
-            console.log(await this._getClosestMovie(movie.title, movie.genre));
+            io.emit("refreshPost");
+            let closesMovie = await this._getClosestMovie(movie.title, movie.genre);
+            this._facebookPost(authorName, closesMovie);
             return doc;
         }
         catch (err) { }
@@ -41,9 +44,10 @@ class postController {
         catch (err) { }
     }
 
-    static async deletePost(title) {
+    static async deletePost(postID) {
         try {
-            await Post.find({ title: title }).deleteOne();
+            await Post.find({ "_id": postID }).deleteOne();
+            io.emit("refreshPost");
         }
         catch (err) { }
     }
@@ -89,6 +93,10 @@ class postController {
 
         let selectedMovie = await knn(genrerank, movielist, options);
         return selectedMovie[0].title;
+    }
+    static async _facebookPost(authorName,closesMovie) {
+        let message = "Recommended movie to watch for " + authorName +  ": " + closesMovie;
+            facebook.newPost(message);
     }
 }
 module.exports = postController;

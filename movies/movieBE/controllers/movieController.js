@@ -21,7 +21,8 @@ class movieController {
 
         });
         try {
-//            let doc = await movie.save();
+            let doc = await movie.save();
+            io.emit("refreshMovie");
             this._facebookPost(movie.title);
             return doc;
         }
@@ -53,6 +54,7 @@ class movieController {
                         year: movieYear
                     }
                 });
+                io.emit("refreshMovie");
             }
         }
         catch (err) { }
@@ -61,6 +63,7 @@ class movieController {
     static async deleteMovie(movieID) {
         try {
             await Movie.find({ _id: movieID }).deleteOne();
+            io.emit("refreshMovie");
         }
         catch (err) { }
     }
@@ -71,7 +74,7 @@ class movieController {
 
     static async _facebookPost(title) {
         let message = "New movie: " +title;
-        return await facebook.newPost(message);
+        await facebook.newPost(message);
     }
 
     static async getAllGenres() {

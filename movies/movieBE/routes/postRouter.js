@@ -4,7 +4,6 @@ var postController = require("../controllers/postController");
 
 async function post(request, response, next){
     try{
-        console.log(request);
         let post = null;
         post = await postController.findAll();
         response.json(
@@ -31,6 +30,22 @@ async function createPost(request, response, next){
         next(err);
     }
 }
+async function deletePost(request, response, next){
+    try{
+        let PostID = request.body["_id"];
+
+        let post = await postController.deletePost(PostID);
+        
+        response.json(
+            post
+        );
+    }
+    catch(err){
+        next(err);
+    }
+}
+
 router.get("/",post);
 router.post("/",createPost);
+router.delete("/",deletePost);
 module.exports = router;
