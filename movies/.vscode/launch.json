@@ -8,11 +8,12 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}\\proxy.conf.json",
-            "preLaunchTask": "tsc: build - tsconfig.json",
-            "outFiles": [
-                "${workspaceFolder}/dist/out-tsc/**/*.js"
-            ]
+            //"program": "${workspaceFolder}\\proxy.conf.json",
+            //"preLaunchTask": "tsc: build - tsconfig.json",
+            //"outFiles": [
+            //    "${workspaceFolder}/dist/out-tsc/**/*.js"
+            //]
+            "program": "${workspaceFolder}\\movieBE\\index.js"
         }
     ]
 }
