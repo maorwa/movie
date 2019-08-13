@@ -20,10 +20,10 @@ import { AgmCoreModule } from '@agm/core';
 import { SearchComponent } from './components/search/search.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { NewPostComponent } from './components/new-post/new-post.component';
+import {MatDialogModule} from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material';
 import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material';
-import { MatDialogModule } from '@angular/material';
 import { MatSelectModule } from '@angular/material';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MovieNamePipe } from './components/search/pipes/movie-name.pipe';
@@ -65,7 +65,7 @@ import { NewMovieComponent } from './components/new-movie/new-movie.component';
     MatSortModule,
     MatCardModule, 
     MatSelectModule,
-    MatDialogModule, 
+    MatDialogModule,
     MatTooltipModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBbdgJZ77t_wpS9ZbNEW6aBQW-JgaEieso'

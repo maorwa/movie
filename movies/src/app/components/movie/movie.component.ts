@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../../services/movie.service';
 import * as io from 'socket.io-client';
-import { MatCardModule, MatDialog } from '@angular/material';
+import {  MatDialog } from '@angular/material/dialog';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
 
@@ -17,7 +17,7 @@ export class MovieComponent implements OnInit {
   movieList: Movie[];
   isAdmin;
   socket;
-  constructor(private movieService: MovieService, public dialog: MatDialog, private Auth: AuthenticationService) {
+  constructor(private movieService: MovieService, public dialog: MatDialog,  private Auth: AuthenticationService) {
     this.socket = io('http://localhost:3001');
   }
 
@@ -48,9 +48,15 @@ export class MovieComponent implements OnInit {
   }
 
   open() {
-    let dialogRef = this.dialog.open(NewMovieComponent);
+    let dialogRef = this.dialog.open(NewMovieComponent,{
+      disableClose: true
+    });
+      
+;
     dialogRef.afterClosed().subscribe(movie => {
+      if(movie){
       this.create_movie(movie)
+      }
     });
 
   }

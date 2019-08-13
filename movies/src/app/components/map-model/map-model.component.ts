@@ -57,7 +57,7 @@ export class MapModelComponent implements OnInit {
   }
 
   public getCoordinates(countryName){
-    return this.countryDataset.find(country => country.name === countryName);
+    return this.countryDataset.find(country => country.name.toLowerCase() === countryName.split(",")[0].toLowerCase());
   }
   // Set the marked places that exist in the calendar to the map
   getEventLocationsForMap(movieList) {

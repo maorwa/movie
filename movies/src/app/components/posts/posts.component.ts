@@ -51,7 +51,9 @@ export class PostsComponent implements OnInit {
     open() {
       let dialogRef = this.dialog.open(NewPostComponent);
       dialogRef.afterClosed().subscribe(post => {
+        if(post){
         this.create_post(post)
+      }
       });
     }
   }
