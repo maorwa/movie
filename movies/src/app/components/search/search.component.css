@@ -1,39 +1,43 @@
 .movies-table-container {
-    display: flex;
-    flex-direction: column;
-    min-width: 300px;
-    max-height: 80vh;
-    overflow: scroll;
-  }
-  
-  .new-post-short-field {
-    width: 10vw;
-    margin-right: 1vw;
-  }
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  max-height: 80vh;
+  overflow: scroll;
+}
 
-  #movies-table {
-    border-collapse: collapse;
-    width: 100%;
-    height: 100%;
-    background-color: #ffffff85;
-    /* background-color: #8aa2f0; */
-  }
-  
-  #movies-table td, #movies-table th {
-      border: 1px solid #ddd;
-      padding: 8px;
-  }
-  
-  #movies-table tr:nth-child(even){background-color: #f2f2f2;}
-  /* #movies-table tr:nth-child(even){background-color: #8aa2f0;} */
-  
-  #movies-table tr:hover {background-color: #ddd;}
-  
-  #movies-table th {
-      padding-top: 12px;
-      padding-bottom: 12px;
-      text-align: left;
-      background-color: #192a35f2;
-      color: white;
-  }
-  
+.new-post-short-field {
+  width: 10vw;
+  margin-right: 1vw;
+}
+
+#movies-table {
+  border-collapse: collapse;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff85;
+  /* background-color: #8aa2f0; */
+}
+
+#movies-table td,
+#movies-table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#movies-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+/* #movies-table tr:nth-child(even){background-color: #8aa2f0;} */
+
+#movies-table tr:hover {
+  background-color: #ddd;
+}
+
+#movies-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #192a35f2;
+  color: white;
+}
