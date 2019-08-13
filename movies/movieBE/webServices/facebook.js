@@ -1,13 +1,13 @@
 const request = require("request-promise");
-const key = 'EAAFL50AZBi3gBAAKvjo3KgHaFCELVyRLfVYpyKCNu4PlUUEZBc97veJ166Dz3FBXJKOoOHIuZAc3cziVbksgJBjGDpP8qlfGVPJ5HZAHF5uzVbOgBNliMUX42ZASFfQHGurZCVoW5IucpiMlsoeRZB6DKfcuEDoKyElPl2Opfswmrml0l2H586jymQycMSjFbIZD';
+const key = 'EAAFL50AZBi3gBAA7DhTy8UPaKK9LbU20GkIxpRjvsWQD1ouZA2NNdcuOEnK7MZB83vuCvTKpvn86ZAWZBjCVxbTA2PUnkC7cmZCBZBugYscj7IXZCvHq9YYjh7BHMCAmqg4To3yqRZBq7a4dFKXGIcZBOKdxY7GuVHTCUYEAwoecZA3EXutu65WCJ0Vc1vrmNnzMI0ZD';
 const url = 'https://graph.facebook.com/691063014706849/feed';
 
 class facebook{
    
-    static async getMovieDetails(movieTitle){
-        if(movieTitle){
+    static async newPost(message){
+        if(message){
             request.post(url, {form:{
-                message: "new movie: " + movieTitle,
+                message: message,
 	            access_token: key
             }})
         }

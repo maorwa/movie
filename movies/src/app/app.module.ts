@@ -13,7 +13,6 @@ import { MatInputModule } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material';
 import { HomeComponent } from './components/home/home.component';
 import { MovieComponent } from './components/movie/movie.component';
-import { ManagmentComponent } from './components/managment/managment.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { WeatherComponent } from './components/weather/weather.component';
 import { MapModelComponent } from './components/map-model/map-model.component';
@@ -39,7 +38,6 @@ import { from } from 'rxjs';
     LoginComponent,
     HomeComponent,
     MovieComponent,
-    ManagmentComponent,
     StatisticsComponent,
     WeatherComponent,
     MapModelComponent,

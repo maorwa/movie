@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatCardModule, MatDialog } from '@angular/material';
-// import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PostService } from '../../services/post.service';
 import { NewPostComponent } from '../new-post/new-post.component'
-import { SocktioService } from '../../services/socktio.service';
+import { AuthenticationService } from '../../services/authentication.service';
 import { Post } from 'src/app/models';
 
 @Component({
@@ -14,11 +13,13 @@ import { Post } from 'src/app/models';
 export class PostsComponent implements OnInit {
   
     posts: Post[] = []; 
-  
-    constructor(public postService: PostService, public dialog: MatDialog,private socktioService: SocktioService) { }
+    isAdmin;
+
+    constructor(public postService: PostService, public dialog: MatDialog, private Auth: AuthenticationService) { }
   
     ngOnInit() {
       this.get_posts();
+      this.isAdmin = this.Auth.isLoggedIn;
     }
 
     get_posts(){
@@ -32,18 +33,21 @@ export class PostsComponent implements OnInit {
     }
 
     create_post(post){
-      this.postService.create_post(post).subscribe(res => {
-        if(post.title == res["title"]){
-            console.log(true);
-        }
+      this.postService.create_post(post).subscribe( () => {
+        this.get_posts();
       });
     }
-    
+
+    deleteMovie(post: Post){
+      this.postService.delete_Post(post).subscribe( () => {
+        this.get_posts();
+      });
+    }
+
     open() {
-      this.socktioService.sendInfo();
       let dialogRef = this.dialog.open(NewPostComponent);
       dialogRef.afterClosed().subscribe(post => {
-        //this.create_post(post)
+        this.create_post(post)
       });
     }
   }

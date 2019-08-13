@@ -70,7 +70,8 @@ class movieController {
     }
 
     static async _facebookPost(title) {
-        return await facebook.getMovieDetails(title);
+        let message = "New movie: " +title;
+        return await facebook.newPost(message);
     }
 
     static async getAllGenres() {

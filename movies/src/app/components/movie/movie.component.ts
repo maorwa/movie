@@ -31,7 +31,6 @@ export class MovieComponent implements OnInit {
       });
   }
   editMovie(movie: Movie){
-    
   }
   deleteMovie(movie: Movie){
     this.movieService.delete_movie(movie).subscribe();

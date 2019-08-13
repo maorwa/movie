@@ -13,8 +13,4 @@ export class SocktioService {
     //this.socket = io(this.url);
   }
 
-  sendInfo(){
-   return this.socket.emit('postCreated');
-  }
-
 }
