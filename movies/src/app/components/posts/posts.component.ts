@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatCardModule, MatDialog } from '@angular/material';
-// import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PostService } from '../../services/post.service';
 import { NewPostComponent } from '../new-post/new-post.component'
-import { Post } from 'src/app/models'; 
+import { AuthenticationService } from '../../services/authentication.service';
+import * as io from 'socket.io-client';
+import { Post } from 'src/app/models';
 
 @Component({
   selector: 'app-posts',
@@ -13,18 +14,25 @@ import { Post } from 'src/app/models';
 export class PostsComponent implements OnInit {
   
     posts: Post[] = []; 
-  
-    constructor(public postService: PostService, public dialog: MatDialog ) { }
+    isAdmin;
+    socket;
+
+    constructor(public postService: PostService, public dialog: MatDialog, private Auth: AuthenticationService) { 
+      this.socket = io('http://localhost:3001');
+    }
   
     ngOnInit() {
       this.get_posts();
+      this.isAdmin = this.Auth.isLoggedIn;
+      this.socket.on("refreshPost", () => {
+        this.get_posts();
+      })
     }
 
     get_posts(){
       this.postService.get_posts().subscribe(
         (res : Post[]) => {
             this.posts = res
-            console.log(res);
         },
         err => {
            console.log("Error occured");
@@ -35,7 +43,17 @@ export class PostsComponent implements OnInit {
       this.postService.create_post(post).subscribe();
     }
 
+    deleteMovie(post: Post){
+      console.log(post);
+      this.postService.delete_Post(post).subscribe();
+    }
+
     open() {
-      this.dialog.open(NewPostComponent);
+      let dialogRef = this.dialog.open(NewPostComponent);
+      dialogRef.afterClosed().subscribe(post => {
+        if(post){
+        this.create_post(post)
+      }
+      });
     }
   }

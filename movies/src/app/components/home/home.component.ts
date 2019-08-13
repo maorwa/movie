@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieComponent } from '../movie/movie.component'
-import { MapModelComponent } from '../map-model/map-model.component'
+import { MovieComponent } from '../movie/movie.component';
+import { MapModelComponent } from '../map-model/map-model.component';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +10,8 @@ import { MapModelComponent } from '../map-model/map-model.component'
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private Auth: AuthenticationService) { }
 
   ngOnInit() {
   }
-
 }

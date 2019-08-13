@@ -30,8 +30,13 @@ export class MovieService {
     .toPromise();
   }
 
-  create_movie(){
-
+  create_movie(movie){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      }) 
+    };
+    return this.HttpClient.post(this.url,movie ,httpOptions);
   }
 
   update_movie(){

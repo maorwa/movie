@@ -13,7 +13,6 @@ import { MatInputModule } from "@angular/material";
 import { MatFormFieldModule } from "@angular/material";
 import { HomeComponent } from "./components/home/home.component";
 import { MovieComponent } from "./components/movie/movie.component";
-import { ManagmentComponent } from "./components/managment/managment.component";
 import { StatisticsComponent } from "./components/statistics/statistics.component";
 import { WeatherComponent } from "./components/weather/weather.component";
 import { MapModelComponent } from "./components/map-model/map-model.component";
@@ -32,6 +31,7 @@ import { MovieGenrePipe } from "./components/search/pipes/movie-genre.pipe";
 import { MovieProductionYearPipe } from "./components/search/pipes/movie-production-year.pipe";
 import { MovieProductionCountryPipe } from "./components/search/pipes/movie-production-country.pipe";
 import { from } from "rxjs";
+import { NewMovieComponent } from './components/new-movie/new-movie.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,6 @@ import { from } from "rxjs";
     LoginComponent,
     HomeComponent,
     MovieComponent,
-    ManagmentComponent,
     StatisticsComponent,
     WeatherComponent,
     MapModelComponent,
@@ -49,7 +48,8 @@ import { from } from "rxjs";
     MovieGenrePipe,
     MovieProductionYearPipe,
     MovieProductionCountryPipe,
-    NewPostComponent
+    NewPostComponent,
+    NewMovieComponent
   ],
   imports: [
     BrowserModule,
@@ -70,8 +70,8 @@ import { from } from "rxjs";
     AgmCoreModule.forRoot({
       apiKey: "AIzaSyBbdgJZ77t_wpS9ZbNEW6aBQW-JgaEieso"
     })
-  ],
-  entryComponents: [NewPostComponent],
+    ],
+  entryComponents: [NewPostComponent, NewMovieComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

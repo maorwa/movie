@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MatCardModule, MatDialog} from '@angular/material';
+import { MatCardModule, MatDialog, MatDialogRef} from '@angular/material';
+import { MovieService } from '../../services/movie.service';
+
+import { Movie } from 'src/app/models';
 
 @Component({
   selector: 'app-new-post',
@@ -7,16 +10,34 @@ import { MatCardModule, MatDialog} from '@angular/material';
   styleUrls: ['./new-post.component.css']
 })
 export class NewPostComponent implements OnInit {
+  movieList : Movie[];
+  movie;
+  title;
+  authorName;
+  content;
 
-  constructor() { }
-  optionsSelect: Array<any>;
+  constructor(private movieService: MovieService,public dialogRef: MatDialogRef<NewPostComponent>) { }
+ 
   ngOnInit() {
-    this.optionsSelect = [
-      { value: 'Feedback', label: 'Feedback' },
-      { value: 'Report a bug', label: 'Report a bug' },
-      { value: 'Feature request', label: 'Feature request' },
-      { value: 'Other stuff', label: 'Other stuff' },
-    ];
+    this.get_movies();
   }
 
+  get_movies(){
+    this.movieService.get_movies().subscribe(
+      (res : Movie[]) => {
+          this.movieList = res
+      },
+      err => {
+         console.log("Error occured");
+      });
+  }
+  closeDialog() {
+    let post = {
+      movie:this.movie.title,
+      title: this.title,
+      author: this.authorName,
+      content: this.content
+    }
+    this.dialogRef.close(post);
+  }
 }

@@ -1,11 +1,27 @@
-<div class="container">
-  <div class="jumbotron" id="myDesign" *ngFor="let movie of movieList">
-    <h1>{{ movie.title }} - {{ movie.year }}</h1>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="imgAbt">
-          <img [src]="movie.poster" class="rounded float-right" />
-        </div>
+    <div class="container">
+        <div style="padding: 10px">
+            <button button="submit" class="btn btn-lg btn-primary" color="primary" (click)="open()">+ Add Movie</button>
+          </div>      <div class="jumbotron"  id = 'myDesign' *ngFor="let movie of movieList">
+          <h1>{{ movie.title }} - {{ movie.year }}</h1>
+          <div class="row">
+          <div class="col-md-4">
+            <div class="imgAbt">
+              <img [src]="movie.poster" class="rounded float-right">
+          </div>
+          </div>
+          <div class="col-md-8 text-center"> 
+            <h3> Genre: {{ movie.genre }}</h3>
+            <p class="lead"> {{ movie.plot }} </p>
+            <h5> Runtime: {{ movie.runtime }}</h5>
+            <video width="70%" height="60%" controls>
+                <source src="assets/trailers/{{movie.title}} - {{movie.year}}.mp4" type="video/mp4">
+            </video>
+          </div>
+          </div>
+          <p class="float-right">
+              <button class="btn btn-lg btn-primary" (click)="editMovie(movie)" *ngIf="isAdmin">Edit</button>
+              <button class="btn btn-lg btn-danger" (click)="deleteMovie(movie)" *ngIf="isAdmin">Delete</button>
+          </p>
       </div>
       <div class="col-md-8 text-center">
         <h3>Genre: {{ movie.genre }}</h3>

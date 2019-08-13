@@ -21,6 +21,20 @@ async function createPost(request, response, next){
         let movie = request.body["movie"];
 
         let post = await postController.createPost(title, author, content, movie)
+
+        response.json(
+            post
+        );
+    }
+    catch(err){
+        next(err);
+    }
+}
+async function deletePost(request, response, next){
+    try{
+        let PostID = request.body["_id"];
+
+        let post = await postController.deletePost(PostID);
         
         response.json(
             post
@@ -30,7 +44,8 @@ async function createPost(request, response, next){
         next(err);
     }
 }
+
 router.get("/",post);
 router.post("/",createPost);
-// router.post("/post/filter",bla);
+router.delete("/",deletePost);
 module.exports = router;
