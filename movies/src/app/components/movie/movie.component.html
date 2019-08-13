@@ -1,6 +1,6 @@
     <div class="container">
         <div style="padding: 10px">
-            <button button="submit" class="btn btn-lg btn-primary" color="primary" (click)="open()">+ Add Movie</button>
+            <button button="submit" class="btn btn-lg btn-primary" color="primary" (click)="open()" *ngIf="isAdmin">+ Add Movie</button>
           </div>      <div class="jumbotron"  id = 'myDesign' *ngFor="let movie of movieList">
           <h1>{{ movie.title }} - {{ movie.year }}</h1>
           <div class="row">

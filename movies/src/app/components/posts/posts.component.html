@@ -9,7 +9,8 @@
 <body>
   <div class="container" style="padding: 20px">
     <div style="padding: 10px">
-      <button button="submit" class="btn btn-lg btn-primary" color="primary" (click)="open()">+ Add Post</button>
+      <button button="submit" class="btn btn-lg btn-primary" color="primary" (click)="openNewPostView()">+ Add
+        Post</button>
     </div>
     <div class="jumbotron" id='myDesign' *ngFor="let post of posts">
       <div class="media">
@@ -30,8 +31,9 @@
         <span><i class="glyphicon glyphicon-comment"></i> {{ post.comments.length }} comments </span>
       </ul>
       <div>
-        <button class="btn btn-lg float-right btn-danger" (click)="deleteMovie(post)" *ngIf="isAdmin">Delete</button>
+        <button class="btn btn-lg float-right btn-danger" (click)="deletePost(post)" *ngIf="isAdmin">Delete</button>
       </div>
+      <button button="submit" class="btn btn-lg btn-primary" color="primary" (click)="openNewCommentView(post)">New Comment</button>
       <div>
         <div class="comments-title"> Comments: </div>
         <div *ngIf="post.comments.length == 0">
@@ -58,20 +60,9 @@
             </div>
           </mat-card-content>
           <mat-card-actions>
-            <button mat-button (click)="onEditToggle(i)" *ngIf="isAdmin">{{isEditing ? 'Save' : 'Edit'}}</button>
-            <button mat-button (click)="onCommentRemove(comment._id)" *ngIf="isAdmin">Remove</button>
+            <button class="btn btn-sl btn-danger" (click)="deleteComment(comment)" *ngIf="isAdmin">Remove</button>
           </mat-card-actions>
         </mat-card>
-      </div>
-      <div class="new-comment" *ngIf="1==2">
-        <p>Add a new comment:</p>
-        <div class="jumbotron" id='myDesign'>
-          <input required matInput placeholder="Your name" #authorName>
-          <input required matInput placeholder="Title" #title>
-          <textarea required matInput placeholder="Content" rows="2" #content></textarea>
-          <button mat-button id="add-comment-btn" (click)="addComment(title, authorName, siteUrl, content);">Add
-            Comment</button>
-        </div>
       </div>
     </div>
 

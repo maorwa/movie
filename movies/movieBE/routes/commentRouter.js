@@ -30,6 +30,21 @@ async function createComment(request, response, next){
         next(err);
     }
 }
+async function deleteComment(request, response, next){
+    try{
+        let commentID   = request.body["_id"];
+
+        let comment = await commentController.deleteComment(commentID);
+        
+        response.json(
+            comment
+        );
+    }
+    catch(err){
+        next(err);
+    }
+}
 router.get("/",comment);
 router.post("/",createComment);
+router.delete("/",deleteComment);
 module.exports = router;

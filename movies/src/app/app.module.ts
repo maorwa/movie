@@ -32,6 +32,7 @@ import { MovieProductionYearPipe } from './components/search/pipes/movie-product
 import { MovieProductionCountryPipe } from './components/search/pipes/movie-production-country.pipe';
 import { from } from 'rxjs';
 import { NewMovieComponent } from './components/new-movie/new-movie.component';
+import { NewCommentComponent } from './components/new-comment/new-comment.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { NewMovieComponent } from './components/new-movie/new-movie.component';
     MovieProductionYearPipe,
     MovieProductionCountryPipe,
     NewPostComponent,
-    NewMovieComponent
+    NewMovieComponent,
+    NewCommentComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +73,7 @@ import { NewMovieComponent } from './components/new-movie/new-movie.component';
       apiKey: 'AIzaSyBbdgJZ77t_wpS9ZbNEW6aBQW-JgaEieso'
     })
     ],
-  entryComponents: [NewPostComponent, NewMovieComponent],
+  entryComponents: [NewPostComponent, NewMovieComponent, NewCommentComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

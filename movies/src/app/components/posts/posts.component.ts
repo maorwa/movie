@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatCardModule, MatDialog } from '@angular/material';
 import { PostService } from '../../services/post.service';
 import { NewPostComponent } from '../new-post/new-post.component'
+import { CommentService } from '../../services/comment.service';
+import { NewCommentComponent } from '../new-comment/new-comment.component'
 import { AuthenticationService } from '../../services/authentication.service';
 import * as io from 'socket.io-client';
 import { Post } from 'src/app/models';
@@ -17,7 +19,7 @@ export class PostsComponent implements OnInit {
     isAdmin;
     socket;
 
-    constructor(public postService: PostService, public dialog: MatDialog, private Auth: AuthenticationService) { 
+    constructor(public postService: PostService, private commentService: CommentService, public dialog: MatDialog, private Auth: AuthenticationService) { 
       this.socket = io('http://localhost:3001');
     }
   
@@ -42,18 +44,36 @@ export class PostsComponent implements OnInit {
     create_post(post){
       this.postService.create_post(post).subscribe();
     }
+    create_comment(comment){
+      this.commentService.create_post(comment).subscribe();
+    }
 
-    deleteMovie(post: Post){
-      console.log(post);
+    deletePost(post: Post){
       this.postService.delete_Post(post).subscribe();
     }
 
-    open() {
-      let dialogRef = this.dialog.open(NewPostComponent);
+    openNewPostView() {
+      let dialogRef = this.dialog.open(NewPostComponent,{
+        disableClose: true
+      });
       dialogRef.afterClosed().subscribe(post => {
         if(post){
         this.create_post(post)
       }
       });
+    }
+    openNewCommentView(post) {
+      let dialogRef = this.dialog.open(NewCommentComponent,{
+        disableClose: true
+      });
+      dialogRef.afterClosed().subscribe(comment => {
+        if(comment){
+          comment.postID = post._id;
+        this.create_comment(comment)
+      }
+      });
+    }
+    deleteComment(comment){
+      this.commentService.delete_comment(comment).subscribe();
     }
   }
