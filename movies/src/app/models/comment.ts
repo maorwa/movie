@@ -1,6 +1,5 @@
 export interface Comment {
-    _id: string,
-    title: string;
+    _id: string
     authorName: string;
     date: Date;
     content: string;

@@ -15,12 +15,11 @@ async function comment(request, response, next){
 
 async function createComment(request, response, next){
     try{
-        let title   = request.body["title"];
         let author  = request.body["author"];
         let content = request.body["content"];
         let postID  = request.body["postID"];
 
-        let comment = await commentController.createComment(title, author, content, postID);
+        let comment = await commentController.createComment(author, content, postID);
         
         response.json(
             comment

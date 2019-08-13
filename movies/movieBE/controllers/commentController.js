@@ -3,9 +3,8 @@ var Post = require("../controllers/postController");
 
 class commentController{
     
-    static async createComment(title, authorName, content, postID){
+    static async createComment(authorName, content, postID){
         let comment = new Comment({
-            title: title,
             authorName: authorName,
             content: content
         });

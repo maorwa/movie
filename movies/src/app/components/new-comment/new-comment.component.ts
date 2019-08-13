@@ -17,7 +17,6 @@ export class NewCommentComponent implements OnInit {
   }
   closeDialog() {
     let post = {
-      title: this.title,
       author: this.authorName,
       content: this.content
     }

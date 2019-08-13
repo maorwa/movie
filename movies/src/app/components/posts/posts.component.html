@@ -1,72 +1,42 @@
-<html>
-
-<head>
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-</head>
-
-<body>
-  <div class="container" style="padding: 20px">
-    <div style="padding: 10px">
-      <button button="submit" class="btn btn-lg btn-primary" color="primary" (click)="openNewPostView()">+ Add
-        Post</button>
-    </div>
-    <div class="jumbotron" id='myDesign' *ngFor="let post of posts">
-      <div class="media">
-        <img class="media-object" [src]=post.imageURL>
-        <div class="media-body" style="padding: 10px;">
-          <h3 class="media-heading"><u>{{ post.title }}</u></h3>
-          <p> {{ post.content }} </p>
-        </div>
-        <div>
-          <p class="text-left">{{ post.movie.title }}</p>
-        </div>
-      </div>
-      <ul class="list-inline list-unstyled">
-        <li><span><i class="glyphicon glyphicon-calendar"></i>{{ post.date | date:"short" }} </span></li>
-        <li>|</li>
-        <span> By {{ post.authorName }} </span>
-        <li>|</li>
-        <span><i class="glyphicon glyphicon-comment"></i> {{ post.comments.length }} comments </span>
-      </ul>
-      <div>
-        <button class="btn btn-lg float-right btn-danger" (click)="deletePost(post)" *ngIf="isAdmin">Delete</button>
-      </div>
-      <button button="submit" class="btn btn-lg btn-primary" color="primary" (click)="openNewCommentView(post)">New Comment</button>
-      <div>
-        <div class="comments-title"> Comments: </div>
-        <div *ngIf="post.comments.length == 0">
-          Be the first to leave a comment!
-        </div>
-        <mat-card id='commentDesign' *ngFor="let comment of post.comments; let i = index" [attr.data-index]="i">
-          <mat-card-title>
-            <b>{{comment.title}}</b>
-          </mat-card-title>
-          <mat-card-subtitle>
-            <span> Author name:
-              <b>{{comment.authorName}}</b>
-            </span>
-          </mat-card-subtitle>
-          <mat-card-content>
-            <span *ngIf="!isEditing;">
-              <b>{{comment.content}}</b>
-            </span>
-            <span *ngIf="currentEditIndex==i">
-              <textarea rows="4" cols="50" [(ngModel)]="comment.content"></textarea>
-            </span>
-            <div *ngIf="comment.authorSiteURL">
-              <b>siteURL: {{comment.authorSiteURL}}</b>
-            </div>
-          </mat-card-content>
-          <mat-card-actions>
-            <button class="btn btn-sl btn-danger" (click)="deleteComment(comment)" *ngIf="isAdmin">Remove</button>
-          </mat-card-actions>
-        </mat-card>
-      </div>
-    </div>
-
+<div class="container" style="padding: 20px">
+  <div style="padding: 10px">
+    <button button="submit" class="btn btn-lg btn-primary" color="primary" (click)="openNewPostView()">+ Add
+      Post</button>
   </div>
-</body>
-
-</html>
+  <div class="jumbotron" id='myDesign' *ngFor="let post of posts">
+    <div class="media">
+      <img class="media-object" [src]=post.imageURL>
+      <div class="media-body" style="padding: 10px;">
+        <h3 class="media-heading"><u><b>{{ post.title }}</b></u></h3>
+        <p> {{ post.content }} </p>
+      </div>
+      <div>
+        <p class="text-left">{{ post.movie.title }}</p>
+      </div>
+    </div>
+    <ul class="list-inline list-unstyled">
+      <li><span><i class="glyphicon glyphicon-calendar"></i>{{ post.date | date:"short" }} </span></li>
+      <li>|</li>
+      <span> By {{ post.authorName }} </span>
+      <li>|</li>
+      <span><i class="glyphicon glyphicon-comment"></i> {{ post.comments.length }} comments </span>
+    </ul>
+    <div>
+      <button class="btn btn-lg float-right btn-danger" (click)="deletePost(post)" *ngIf="isAdmin">Delete</button>
+    </div>
+    <button button="submit" class="btn btn-lg btn-primary" color="primary" (click)="openNewCommentView(post)">New
+      Comment</button>
+    <div class="comments-title"> Comments: </div>
+    <div *ngIf="post.comments.length == 0">
+      Be the first to leave a comment!
+    </div>
+    <div class="card" id="commentDiv" *ngFor="let comment of post.comments; let i = index" [attr.data-index]="i">
+      <div class="card-body">
+          <p><strong>{{comment.authorName}}</strong></p>
+          <p>{{comment.content}}
+            <button class="btn btn-sl float-right btn-danger" (click)="deleteComment(comment)"
+              *ngIf="isAdmin">Remove</button>
+          </p>
+      </div>
+    </div>
+  </div>
