@@ -57,7 +57,6 @@ export class MapModelComponent implements OnInit {
   }
 
   public getCoordinates(countryName){
-    console.log(countryName);
     return this.countryDataset.find(country => country.name === countryName);
   }
   // Set the marked places that exist in the calendar to the map
@@ -68,7 +67,6 @@ export class MapModelComponent implements OnInit {
 
     movieList.forEach((movie) => {
       let cord = this.getCoordinates(movie.country);
-      console.log(cord);
       this.markers.push({
         label: movie.title,
         lat: cord.lat, 

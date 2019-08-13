@@ -3,7 +3,8 @@ import { MatCardModule, MatDialog } from '@angular/material';
 // import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PostService } from '../../services/post.service';
 import { NewPostComponent } from '../new-post/new-post.component'
-import { Post } from 'src/app/models'; 
+import { SocktioService } from '../../services/socktio.service';
+import { Post } from 'src/app/models';
 
 @Component({
   selector: 'app-posts',
@@ -14,7 +15,7 @@ export class PostsComponent implements OnInit {
   
     posts: Post[] = []; 
   
-    constructor(public postService: PostService, public dialog: MatDialog ) { }
+    constructor(public postService: PostService, public dialog: MatDialog,private socktioService: SocktioService) { }
   
     ngOnInit() {
       this.get_posts();
@@ -24,7 +25,6 @@ export class PostsComponent implements OnInit {
       this.postService.get_posts().subscribe(
         (res : Post[]) => {
             this.posts = res
-            console.log(res);
         },
         err => {
            console.log("Error occured");
@@ -32,11 +32,18 @@ export class PostsComponent implements OnInit {
     }
 
     create_post(post){
-      console.log(post);
-      this.postService.create_post(post).subscribe();
+      this.postService.create_post(post).subscribe(res => {
+        if(post.title == res["title"]){
+            console.log(true);
+        }
+      });
     }
-
+    
     open() {
+      this.socktioService.sendInfo();
       let dialogRef = this.dialog.open(NewPostComponent);
+      dialogRef.afterClosed().subscribe(post => {
+        //this.create_post(post)
+      });
     }
   }

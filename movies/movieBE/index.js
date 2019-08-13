@@ -15,13 +15,13 @@ app.all("*",(req, res, next)=>{
 
 app.use("/api", ROUTES);
 
-var http = require("http").Server(app);
-var io = require("socket.io")(http);
+var server = app.listen(3001);
+var io = require('socket.io').listen(server);
 
-io.on("connection", function(socket) {
-    socket.on("postCreated", function(msg){
-      console.log('message: ' + msg);
-    });
+io.on('connection', function(socket){
+  io.emit('emitting','test');
+  socket.on('postCreated', function(){
+    io.emit('refreshPostPage');  
   });
+});
 
-app.listen(3001);

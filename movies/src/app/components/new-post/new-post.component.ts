@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MatCardModule, MatDialog} from '@angular/material';
+import { MatCardModule, MatDialog, MatDialogRef} from '@angular/material';
 import { MovieService } from '../../services/movie.service';
-import { PostService } from '../../services/post.service';
 
-import { Movie, Post } from 'src/app/models';
+import { Movie } from 'src/app/models';
 
 @Component({
   selector: 'app-new-post',
@@ -12,13 +11,12 @@ import { Movie, Post } from 'src/app/models';
 })
 export class NewPostComponent implements OnInit {
   movieList : Movie[];
-  post;
   movie;
   title;
   authorName;
   content;
 
-  constructor(private movieService: MovieService,private postService: PostService) { }
+  constructor(private movieService: MovieService,public dialogRef: MatDialogRef<NewPostComponent>) { }
  
   ngOnInit() {
     this.get_movies();
@@ -33,16 +31,13 @@ export class NewPostComponent implements OnInit {
          console.log("Error occured");
       });
   }
-
-  newPost() {
-
-    this.post = {
+  closeDialog() {
+    let post = {
       movie:this.movie.title,
       title: this.title,
-      authorName: this.authorName,
+      author: this.authorName,
       content: this.content
     }
-    this.postService.create_post(this.post);
+    this.dialogRef.close(post);
   }
-
 }

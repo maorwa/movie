@@ -21,11 +21,9 @@ export class PostService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
-      }),
-      //body: 
+      }) 
     };
-    console.log(httpOptions);
-    return this.HttpClient.post(this.url,httpOptions);
+    return this.HttpClient.post(this.url,post ,httpOptions);
   }
   
   delete_Post(post: Post){

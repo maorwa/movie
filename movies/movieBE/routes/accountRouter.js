@@ -58,6 +58,8 @@ async function login(request, response, next){
                 isAdmin: account[0].isAdmin,
                 userId:account[0]._id 
             }, privatekey, {expiresIn : "1h", algorithm : "RS256"});
+            
+            response.cookie("SESSIONID", token, {httpOnly:true, secure:true});
 
             return response.status(200).json({
                 success: true,
