@@ -1,19 +1,18 @@
-import { Pipe, PipeTransform } from '@angular/core';
-import * as AhoCorasick from 'AhoCorasick';
+import { Pipe, PipeTransform } from "@angular/core";
+import * as AhoCorasick from "AhoCorasick";
 
 @Pipe({
-  name: 'movieGenreFilter'
+  name: "movieGenreFilter"
 })
 export class MovieGenrePipe implements PipeTransform {
-
   transform(movies: any, args?: any): any {
     if (args == undefined || args == "") {
       return movies;
     }
     let matches = [];
-    let ac = new AhoCorasick([args.toLowerCase()]);
+    let ac = new AhoCorasick([args.trim().toLowerCase()]);
     movies.forEach(movie => {
-      let results = ac.search(movie.gener.toLowerCase());
+      let results = ac.search(movie.genre.trim().toLowerCase());
       if (results.length > 0) {
         matches.push(movie);
       }
@@ -21,5 +20,4 @@ export class MovieGenrePipe implements PipeTransform {
 
     return matches;
   }
-
 }
