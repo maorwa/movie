@@ -1,8 +1,13 @@
 h1 {
-    text-shadow: 4px 4px #F7E48A;
-  }
+  text-shadow: 4px 4px #f7e48a;
+}
 
-  #myDesign {
-    border: 2px solid #8aa2f0;
-    border-radius: 25px;
-  }
+#myDesign {
+  border: 1px solid #b5c0e4;
+  border-radius: 20px;
+}
+
+.col-md-8 {
+  width: 100%;
+  height: 100%;
+}

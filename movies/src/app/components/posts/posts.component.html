@@ -32,11 +32,11 @@
     </div>
     <div class="card" id="commentDiv" *ngFor="let comment of post.comments; let i = index" [attr.data-index]="i">
       <div class="card-body">
-          <p><strong>{{comment.authorName}}</strong></p>
-          <p>{{comment.content}}
-            <button class="btn btn-sl float-right btn-danger" (click)="deleteComment(comment)"
-              *ngIf="isAdmin">Remove</button>
-          </p>
+        <p><strong>{{comment.authorName}}</strong></p>
+        <p>{{comment.content}}
+          <button class="btn btn-sl float-right btn-danger" (click)="deleteComment(comment)"
+            *ngIf="isAdmin">Remove</button>
+        </p>
       </div>
     </div>
   </div>
