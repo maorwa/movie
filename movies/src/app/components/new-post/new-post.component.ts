@@ -16,7 +16,7 @@ export class NewPostComponent implements OnInit {
   authorName;
   content;
 
-  constructor(private movieService: MovieService,public dialogRef: MatDialogRef<NewPostComponent>) { }
+  constructor(private movieService: MovieService, public dialogRef: MatDialogRef<NewPostComponent>) { }
  
   ngOnInit() {
     this.get_movies();

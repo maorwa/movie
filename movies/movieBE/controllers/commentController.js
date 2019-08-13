@@ -14,6 +14,7 @@ class commentController{
             const post = await Post.findById(postID);
             post.comments.push(comment);
             await post.save();
+            io.emit("refreshPost");
             return doc;
         }
         catch(err){}
@@ -27,9 +28,10 @@ class commentController{
         catch(err){}
     }
 
-    static async deleteComment(title){
+    static async deleteComment(commentID){
         try{
-            await Comment.find({title: title}).deleteOne();
+            await Comment.find({_id: commentID}).deleteOne();
+            io.emit("refreshPost");
         }
         catch(err){}
     }
