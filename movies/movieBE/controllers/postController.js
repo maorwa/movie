@@ -115,7 +115,7 @@ class postController {
                 $group:{
                     _id:{ movies: "$movie" },
                     count: { $sum: 1}
-                }
+                }  
             }
         ])
         return query;
