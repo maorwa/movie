@@ -33,6 +33,9 @@ import { MovieProductionCountryPipe } from "./components/search/pipes/movie-prod
 import { from } from "rxjs";
 import { NewMovieComponent } from './components/new-movie/new-movie.component';
 import { NewCommentComponent } from './components/new-comment/new-comment.component';
+import { PostTitlePipe } from './components/search/postsPipes/post-title.pipe';
+import { PostAuthorNamePipe } from './components/search/postsPipes/post-author-name.pipe';
+import { PostMoviePipe } from './components/search/postsPipes/post-movie.pipe';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import { NewCommentComponent } from './components/new-comment/new-comment.compon
     MovieProductionCountryPipe,
     NewPostComponent,
     NewMovieComponent,
-    NewCommentComponent
+    NewCommentComponent,
+    PostTitlePipe,
+    PostAuthorNamePipe,
+    PostMoviePipe
   ],
   imports: [
     BrowserModule,
