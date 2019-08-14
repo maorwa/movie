@@ -37,6 +37,10 @@ import { NewAccountComponent } from './components/new-account/new-account.compon
 import { AccountComponent } from './components/account/account.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
+import { PostTitlePipe } from './components/search/postsPipes/post-title.pipe';
+import { PostAuthorNamePipe } from './components/search/postsPipes/post-author-name.pipe';
+import { PostMoviePipe } from './components/search/postsPipes/post-movie.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +61,10 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     NewCommentComponent,
     NewAccountComponent,
     AccountComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PostTitlePipe,
+    PostAuthorNamePipe,
+    PostMoviePipe
   ],
   imports: [
     BrowserModule,
