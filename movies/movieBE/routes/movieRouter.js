@@ -1,6 +1,7 @@
 const express = require("express");
 var router = express.Router();
 var movieController = require("../controllers/movieController");
+const checkAuth = require("../middleware/check-auth");
 
 async function movie(request, response, next){
     try{
@@ -39,7 +40,8 @@ async function createMovie(request, response, next){
     try{
         let movieTitle = request.body["title"];
         let movieYear = request.body["year"];
-        if(validator.isAlphanumeric(movieTitle)&&validator.isNumeric(movieYear)){
+
+        if(validator.isNumeric(movieYear)){
         let movie = await movieController.createMovie(movieTitle, movieYear);
         
         response.json(
@@ -75,7 +77,7 @@ async function deleteMovie(request, response, next){
 }
 
 router.get("/",movie);
-router.put("/",updateeMovie);
-router.post("/",createMovie);
-router.delete("/",deleteMovie);
+router.put("/", checkAuth, updateeMovie);
+router.post("/", checkAuth, createMovie);
+router.delete("/", checkAuth, deleteMovie);
 module.exports = router;

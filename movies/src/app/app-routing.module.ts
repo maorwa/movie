@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from 'src/app/guards/auth.guard';
+import { LoggedInGuard } from 'src/app/guards/loggedIn.guard';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { SearchComponent } from './components/search/search.component';
@@ -12,7 +13,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent,canActivate: [LoggedInGuard] },
   { path: "PageNotFound", component: PageNotFoundComponent },
   { path: 'account', component: AccountComponent , canActivate: [AuthGuard]},
   { path: 'statistics', component: StatisticsComponent },

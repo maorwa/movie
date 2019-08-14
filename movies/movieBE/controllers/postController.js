@@ -8,7 +8,7 @@ class postController {
     static async createPost(title, authorName, content, movieTitle) {
 
         let date = new Date();
-        let movie = (await movieController.findByTitle(movieTitle));
+        let movie = await movieController.findByTitle(movieTitle);
 
         let post = new Post({
             title: title,
@@ -31,6 +31,14 @@ class postController {
     static async findAll() {
         try {
             let postList = await Post.find({}).populate("movie").populate("comments");
+            return postList;
+        }
+        catch (err) { }
+    }
+
+    static async findByMovieID() {
+        try {
+            let postList = await Post.find({movie: movie});
             return postList;
         }
         catch (err) { }

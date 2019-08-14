@@ -25,7 +25,7 @@ export class PostsComponent implements OnInit {
   
     ngOnInit() {
       this.get_posts();
-      this.isAdmin = this.Auth.isLoggedIn;
+      this.isAdmin = this.Auth.isLoggedIn();
       this.socket.on("refreshPost", () => {
         this.get_posts();
       })
@@ -34,6 +34,7 @@ export class PostsComponent implements OnInit {
     get_posts(){
       this.postService.get_posts().subscribe(
         (res : Post[]) => {
+          console.log(res);
             this.posts = res
         },
         err => {

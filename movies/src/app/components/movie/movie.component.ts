@@ -24,7 +24,7 @@ export class MovieComponent implements OnInit {
 
   ngOnInit() {
     this.isEditing = false;
-    this.isAdmin = this.Auth.isLoggedIn;
+    this.isAdmin = this.Auth.isLoggedIn();
     this.get_movies();
     this.socket.on("refreshMovie", () => {
       this.get_movies();
@@ -41,7 +41,6 @@ export class MovieComponent implements OnInit {
       });
   }
   create_movie(movie) {
-    console.log(movie)
     if (movie) {
       this.movieService.create_movie(movie).subscribe();
     }

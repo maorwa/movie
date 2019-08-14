@@ -14,11 +14,9 @@
       </div>
     </div>
     <ul class="list-inline list-unstyled">
-      <li><span><i class="glyphicon glyphicon-calendar"></i>{{ post.date | date:"short" }} </span></li>
-      <li>|</li>
-      <span> By {{ post.authorName }} </span>
-      <li>|</li>
-      <span><i class="glyphicon glyphicon-comment"></i> {{ post.comments.length }} comments </span>
+      <span><mat-icon>calendar_today</mat-icon>{{ post.date | date:"short" }} </span>
+      <span>| By {{ post.authorName }} </span>
+      <span>| <mat-icon> mail_outline</mat-icon> {{ post.comments.length }} comments </span>
     </ul>
     <div>
       <button class="btn btn-lg float-right btn-danger" (click)="deletePost(post)" *ngIf="isAdmin">Delete</button>

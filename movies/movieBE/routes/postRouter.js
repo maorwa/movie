@@ -1,6 +1,7 @@
 const express = require("express");
 var router = express.Router();
 var postController = require("../controllers/postController");
+const checkAuth = require("../middleware/check-auth");
 
 async function post(request, response, next) {
     try {
@@ -19,7 +20,7 @@ async function createPost(request, response, next) {
         let author = request.body["author"];
         let content = request.body["content"];
         let movie = request.body["movie"];
-        if (movie && validator.isAlphanumeric(title) && validator.isAlphanumeric(author) && validator.isAlphanumeric(content)) {
+        if (movie && title && author && content) {
             let post = await postController.createPost(title, author, content, movie)
 
             response.json(
@@ -60,5 +61,5 @@ async function deletePost(request, response, next) {
 
 router.get("/", post);
 router.post("/", createPost);
-router.delete("/", deletePost);
+router.delete("/", checkAuth, deletePost);
 module.exports = router;

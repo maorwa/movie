@@ -1,6 +1,7 @@
 const express = require("express");
 var router = express.Router();
 var commentController = require("../controllers/commentController");
+const checkAuth = require("../middleware/check-auth");
 
 async function comment(request, response, next){
     try{
@@ -18,7 +19,7 @@ async function createComment(request, response, next){
         let author  = request.body["author"];
         let content = request.body["content"];
         let postID  = request.body["postID"];
-        if(validator.isAlphanumeric(author)&&validator.isAlphanumeric(content)&&validator.isAlphanumeric(postID)){
+        if(author &&content&&postID){
         let comment = await commentController.createComment(author, content, postID);
         
         response.json(
@@ -56,5 +57,5 @@ async function deleteComment(request, response, next){
 }
 router.get("/",comment);
 router.post("/",createComment);
-router.delete("/",deleteComment);
+router.delete("/",checkAuth ,deleteComment);
 module.exports = router;

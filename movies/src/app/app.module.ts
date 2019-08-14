@@ -25,6 +25,7 @@ import { MatSortModule } from "@angular/material/sort";
 import { MatCardModule } from "@angular/material";
 import { MatDialogModule } from "@angular/material";
 import { MatSelectModule } from "@angular/material";
+import { MatIconModule } from "@angular/material"
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MovieNamePipe } from "./components/search/pipes/movie-name.pipe";
 import { MovieGenrePipe } from "./components/search/pipes/movie-genre.pipe";
@@ -40,6 +41,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { PostTitlePipe } from './components/search/postsPipes/post-title.pipe';
 import { PostAuthorNamePipe } from './components/search/postsPipes/post-author-name.pipe';
 import { PostMoviePipe } from './components/search/postsPipes/post-movie.pipe';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,8 @@ import { PostMoviePipe } from './components/search/postsPipes/post-movie.pipe';
     PageNotFoundComponent,
     PostTitlePipe,
     PostAuthorNamePipe,
-    PostMoviePipe
+    PostMoviePipe,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -82,6 +85,7 @@ import { PostMoviePipe } from './components/search/postsPipes/post-movie.pipe';
     MatSelectModule,
     MatDialogModule,
     MatTooltipModule,
+    MatIconModule,
     AgmCoreModule.forRoot({
       apiKey: "AIzaSyBbdgJZ77t_wpS9ZbNEW6aBQW-JgaEieso"
     })

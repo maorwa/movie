@@ -1,12 +1,12 @@
 const Movie = require("../models/movieModel");
 const OMDB = require('../webServices/omdb');
 const facebook = require('../webServices/facebook');
-
+const Post = require('../models/postModel');
 class movieController {
 
     static async createMovie(title, year) {
         let omdbDetails = await this._OMDBDetails(title, year);
-        if(omdbDetails.Error){
+        if (omdbDetails.Error) {
             return {
                 message: "movie not found"
             }
@@ -40,7 +40,7 @@ class movieController {
         }
         catch (err) { }
     }
-
+    
     static async findByTitle(movieTitle) {
         try {
             let movieList = await Movie.findOne({ title: movieTitle });
@@ -66,8 +66,12 @@ class movieController {
 
     static async deleteMovie(movieID) {
         try {
-            await Movie.find({ _id: movieID }).deleteOne();
-            io.emit("refreshMovie");
+            let movie = await Movie.findOne({ _id: movieID });
+            let movieList = await Post.findOne({movie: movie});
+            if (!movieList) {
+                await Movie.find({ _id: movieID }).deleteOne();
+                io.emit("refreshMovie");
+            }
         }
         catch (err) { }
     }
@@ -77,7 +81,7 @@ class movieController {
     }
 
     static async _facebookPost(title) {
-        let message = "New movie: " +title;
+        let message = "New movie: " + title;
         await facebook.newPost(message);
     }
 
