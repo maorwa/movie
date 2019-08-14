@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatCardModule, MatDialog, MatDialogRef} from '@angular/material';
+import { MatCardModule, MatDialog, MatDialogRef } from '@angular/material';
 import { MovieService } from '../../services/movie.service';
 
 import { Movie } from 'src/app/models';
@@ -10,34 +10,37 @@ import { Movie } from 'src/app/models';
   styleUrls: ['./new-post.component.css']
 })
 export class NewPostComponent implements OnInit {
-  movieList : Movie[];
+  movieList: Movie[];
   movie;
   title;
   authorName;
   content;
 
   constructor(private movieService: MovieService, public dialogRef: MatDialogRef<NewPostComponent>) { }
- 
+
   ngOnInit() {
     this.get_movies();
   }
 
-  get_movies(){
+  get_movies() {
     this.movieService.get_movies().subscribe(
-      (res : Movie[]) => {
-          this.movieList = res
+      (res: Movie[]) => {
+        this.movieList = res
       },
       err => {
-         console.log("Error occured");
+        console.log("Error occured");
       });
   }
   closeDialog() {
-    let post = {
-      movie:this.movie.title,
-      title: this.title,
-      author: this.authorName,
-      content: this.content
+    try{
+      let post = {
+        movie: this.movie.title,
+        title: this.title,
+        author: this.authorName,
+        content: this.content
+      }
+      this.dialogRef.close(post);
     }
-    this.dialogRef.close(post);
+    catch(err){}
   }
 }

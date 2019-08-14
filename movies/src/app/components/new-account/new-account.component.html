@@ -1,0 +1,19 @@
+<div>
+        <div>
+                <mat-form-field>
+                    <input required matInput placeholder="Name" [(ngModel)]=name>
+                </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <input required required matInput placeholder="Email" [(ngModel)]="email">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <input required type="password" required matInput placeholder="Password" [(ngModel)]="password">
+            </mat-form-field>
+        </div>
+    <button mat-button mat-dialog-close (click)="closeDialog()">Submit</button>
+    <button mat-button mat-dialog-close >Cancel</button>
+</div>

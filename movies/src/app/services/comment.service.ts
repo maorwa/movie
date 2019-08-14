@@ -11,7 +11,7 @@ export class CommentService {
   private url = "http://localhost:3001/api/comment"
   constructor(private HttpClient:HttpClient) { }
 
-  create_post(comment){
+  create_comment(comment){
     console.log(comment);
     const httpOptions = {
       headers: new HttpHeaders({

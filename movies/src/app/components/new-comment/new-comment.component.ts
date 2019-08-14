@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialogRef} from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-new-comment',
@@ -8,19 +8,20 @@ import { MatDialogRef} from '@angular/material';
 })
 export class NewCommentComponent implements OnInit {
   comment;
-  title;
   authorName;
   content;
-  constructor( public dialogRef: MatDialogRef<NewCommentComponent>) { }
+  constructor(public dialogRef: MatDialogRef<NewCommentComponent>) { }
 
   ngOnInit() {
   }
   closeDialog() {
-    let post = {
-      author: this.authorName,
-      content: this.content
-    }
-    this.dialogRef.close(post);
+    try {
+      let post = {
+        author: this.authorName,
+        content: this.content
+      }
+      this.dialogRef.close(post);
+    }catch(e){}
   }
 
 }

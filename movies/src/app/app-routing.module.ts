@@ -7,13 +7,19 @@ import { StatisticsComponent } from './components/statistics/statistics.componen
 import { MovieComponent } from './components/movie/movie.component';
 import { SearchComponent } from './components/search/search.component';
 import { PostsComponent } from './components/posts/posts.component';
+import { AccountComponent } from './components/account/account.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: "PageNotFound", component: PageNotFoundComponent },
+  { path: 'account', component: AccountComponent , canActivate: [AuthGuard]},
   { path: 'statistics', component: StatisticsComponent },
   { path: 'search', component: SearchComponent , canActivate: [AuthGuard]},
   { path: 'posts', component: PostsComponent },
-  { path: '', component: HomeComponent }
+  { path: '', component: HomeComponent },
+  { path: '**', redirectTo: '/PageNotFound'}
 ];
 
 @NgModule({

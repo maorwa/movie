@@ -17,3 +17,4 @@ app.use("/api", ROUTES);
 
 var server = app.listen(3001);
 global.io = require('socket.io').listen(server);
+global.validator = require('validator');

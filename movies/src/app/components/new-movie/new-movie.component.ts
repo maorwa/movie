@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatCardModule, MatDialog, MatDialogRef} from '@angular/material';
+import { MatCardModule, MatDialog, MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-new-movie',
@@ -11,14 +11,19 @@ export class NewMovieComponent implements OnInit {
   year
 
   constructor(public dialogRef: MatDialogRef<NewMovieComponent>) { }
- 
-  ngOnInit() {}
+
+  ngOnInit() { }
 
   closeDialog() {
-    let post = {
-      title: this.title,
-      year: this.year
+    try {
+      if (this.title && this.year) {
+        let movie = {
+          title: this.title,
+          year: this.year
+        }
+        this.dialogRef.close(movie);
+      }
     }
-    this.dialogRef.close(post);
+    catch (e) { }
   }
 }

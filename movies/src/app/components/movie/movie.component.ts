@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../../services/movie.service';
 import * as io from 'socket.io-client';
-import {  MatDialog } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
 
@@ -17,11 +17,13 @@ export class MovieComponent implements OnInit {
   movieList: Movie[];
   isAdmin;
   socket;
-  constructor(private movieService: MovieService, public dialog: MatDialog,  private Auth: AuthenticationService) {
+  isEditing;
+  constructor(private movieService: MovieService, public dialog: MatDialog, private Auth: AuthenticationService) {
     this.socket = io('http://localhost:3001');
   }
 
   ngOnInit() {
+    this.isEditing = false;
     this.isAdmin = this.Auth.isLoggedIn;
     this.get_movies();
     this.socket.on("refreshMovie", () => {
@@ -39,23 +41,33 @@ export class MovieComponent implements OnInit {
       });
   }
   create_movie(movie) {
-    this.movieService.create_movie(movie).subscribe();
+    console.log(movie)
+    if (movie) {
+      this.movieService.create_movie(movie).subscribe();
+    }
   }
   editMovie(movie: Movie) {
   }
   deleteMovie(movie: Movie) {
     this.movieService.delete_movie(movie).subscribe();
   }
+  onEditToggle() {
+    if (this.isEditing) {
 
+      console.log(this.isEditing);
+    }
+    else {
+      this.isEditing = true;
+    }
+  }
   open() {
-    let dialogRef = this.dialog.open(NewMovieComponent,{
+    let dialogRef = this.dialog.open(NewMovieComponent, {
       disableClose: true
     });
-      
-;
+
     dialogRef.afterClosed().subscribe(movie => {
-      if(movie){
-      this.create_movie(movie)
+      if (movie) {
+        this.create_movie(movie)
       }
     });
 

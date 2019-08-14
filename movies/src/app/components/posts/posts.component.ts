@@ -45,7 +45,7 @@ export class PostsComponent implements OnInit {
       this.postService.create_post(post).subscribe();
     }
     create_comment(comment){
-      this.commentService.create_post(comment).subscribe();
+      this.commentService.create_comment(comment).subscribe();
     }
 
     deletePost(post: Post){

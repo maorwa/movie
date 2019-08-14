@@ -33,6 +33,9 @@ import { MovieProductionCountryPipe } from "./components/search/pipes/movie-prod
 import { from } from "rxjs";
 import { NewMovieComponent } from './components/new-movie/new-movie.component';
 import { NewCommentComponent } from './components/new-comment/new-comment.component';
+import { NewAccountComponent } from './components/new-account/new-account.component';
+import { AccountComponent } from './components/account/account.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import { NewCommentComponent } from './components/new-comment/new-comment.compon
     MovieProductionCountryPipe,
     NewPostComponent,
     NewMovieComponent,
-    NewCommentComponent
+    NewCommentComponent,
+    NewAccountComponent,
+    AccountComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +79,7 @@ import { NewCommentComponent } from './components/new-comment/new-comment.compon
       apiKey: "AIzaSyBbdgJZ77t_wpS9ZbNEW6aBQW-JgaEieso"
     })
     ],
-  entryComponents: [NewPostComponent, NewMovieComponent, NewCommentComponent],
+  entryComponents: [NewPostComponent, NewMovieComponent, NewCommentComponent, NewAccountComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

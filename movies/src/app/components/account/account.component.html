@@ -1,0 +1,13 @@
+<div class="container">
+        <div style="padding: 10px">
+          <button button="submit" class="btn btn-lg btn-primary" color="primary" (click)="open()" *ngIf="isAdmin">+ Add
+            Account</button>
+        </div>
+        <div  *ngFor="let account of accountList" style="width: 95%">
+          <ul class="list-group">
+              <li class="list-group-item h3">{{ account.email }}
+              <button class="btn btn-ms float-right btn-danger" (click)="deleteAccount(account)" *ngIf="isAdmin">Remove</button>
+            </li>
+            </ul>
+        </div>
+        </div>
