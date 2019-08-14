@@ -121,4 +121,27 @@
       </table>
     </div>
   </div>
+
+  <hr />
+  <br />
+  <div>
+    <label>Group of the number of post for the movie</label>
+    <div class="movies-table-container mat-elevation-z8">
+      <table id="movies-table">
+        <thead>
+          <th >Movie Title</th>
+          <th >Count Of the Movies Posts</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="
+            let n of group
+          ">
+            <td>{{ n._id.movies }}</td>
+            <td>{{ n.count }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
 </div>

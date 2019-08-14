@@ -49,6 +49,14 @@ class movieController {
         catch (err) { }
     }
 
+    static async findByID(movieID) {
+        try {
+            let movie = await Movie.findOne({ _id: movieID });
+            return movie;
+        }
+        catch (err) { }
+    }
+
     static async updateMovie(movieID, movieTitle, movieYear) {
         try {
             if (movieID && movieTitle && movieYear) {

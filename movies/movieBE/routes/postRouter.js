@@ -13,6 +13,16 @@ async function post(request, response, next) {
     }
     catch (err) { }
 }
+async function groupBy(request, response, next) {
+    try {
+        let group = null;
+        group = await postController.groupPost();
+        response.json(
+            group
+        );
+    }
+    catch (err) { }
+}
 
 async function createPost(request, response, next) {
     try {
@@ -60,6 +70,7 @@ async function deletePost(request, response, next) {
 }
 
 router.get("/", post);
+router.get("/group", groupBy);
 router.post("/", createPost);
 router.delete("/", checkAuth, deletePost);
 module.exports = router;

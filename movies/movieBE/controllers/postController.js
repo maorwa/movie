@@ -106,5 +106,22 @@ class postController {
         let message = "Recommended movie to watch for " + authorName +  ": " + closesMovie;
             facebook.newPost(message);
     }
+
+    static async groupPost(){
+       try{
+        
+        var query = await Post.aggregate([
+            {
+                $group:{
+                    _id:{ movies: "$movie" },
+                    count: { $sum: 1}
+                }
+            }
+        ])
+        return query;
+    } catch(err){
+        console.log(err);
+    }
+    }
 }
 module.exports = postController;

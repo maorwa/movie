@@ -18,6 +18,10 @@ export class PostService {
     return this.HttpClient.get<Post>(this.url);
   }
 
+  groupBY(){
+    return this.HttpClient.get<Post>('http://localhost:3001/api/post/group');
+  }
+
   create_post(post){
     const httpOptions = {
       headers: new HttpHeaders({

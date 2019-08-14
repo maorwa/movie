@@ -10,6 +10,7 @@ import { PostService } from "src/app/services/post.service";
 })
 export class SearchComponent implements OnInit {
   // Movie param
+  group;
   name;
   genre;
   productionYear;
@@ -36,6 +37,7 @@ export class SearchComponent implements OnInit {
     // For the filter of the movies & posts
     this.getMovies();
     this.getPosts();
+    this.groupBY();
 
     // Canvas
     var c: any = document.getElementById("TitleSearchCanvas");
@@ -98,6 +100,12 @@ export class SearchComponent implements OnInit {
     this.postService.get_posts().subscribe((posts: any) => {
       this.posts = posts;
       this.sortedPosts = this.posts.slice();
+    });
+  }
+  groupBY() {
+    this.postService.groupBY().subscribe((groups: any) => {
+      this.group = groups;
+      console.log(this.group);
     });
   }
 
