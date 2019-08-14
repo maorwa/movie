@@ -105,7 +105,6 @@ export class SearchComponent implements OnInit {
   groupBY() {
     this.postService.groupBY().subscribe((groups: any) => {
       this.group = groups;
-      console.log(this.group);
     });
   }
 

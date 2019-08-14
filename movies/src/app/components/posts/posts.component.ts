@@ -34,7 +34,6 @@ export class PostsComponent implements OnInit {
     get_posts(){
       this.postService.get_posts().subscribe(
         (res : Post[]) => {
-          console.log(res);
             this.posts = res
         },
         err => {
